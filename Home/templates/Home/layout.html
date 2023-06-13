@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>BVMCES: Library System</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'Home/assets/Logo.svg' %}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'Home/css/scss/custom.css' %}">
+    <link rel="stylesheet" href="{% static 'Home/libraries/animate/animate.min.css' %}">
+    <!-- Scripts -->
+    <script src="{% static 'Home/css/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="{% static 'Home/libraries/anime/anime.min.js' %}"></script>
+    <script src="{% static 'Home/libraries/sweetalert2/sweetalert2.js' %}"></script>
+</head>
+<body>
+    <div class="home-body-container">
+        <div class="home-body-wrapper">
+            {% block body %}
+            {% endblock %}
+        </div>
+    </div>
+    <script>
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    </script>
+{% load sweetify %}
+{% sweetify %}
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,949 @@
+2022-09-14 00:30:16:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word thankful
+2022-09-14 00:30:46:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word thankful
+2022-09-14 00:31:47:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word thankful
+2022-09-14 00:33:46:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word thankful
+2022-09-14 00:34:38:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word thankful
+2022-09-14 00:40:49:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 00:40:49:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 00:40:49:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 00:40:49:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/Power
+2022-09-14 00:40:49:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 00:40:49:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word Power
+2022-09-14 00:42:23:wordhoard.antonyms:ERROR: A TypeError occurred in the following code segment:
+2022-09-14 00:42:23:wordhoard.antonyms:ERROR:   File "C:\Users\USER\Desktop\LibrarySystem\env\lib\site-packages\wordhoard\antonyms.py", line 330, in _query_wordhippo
+    for href_link in table_row.find('a', href=True):
+
+2022-09-14 00:42:47:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word thankful
+2022-09-14 00:43:39:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word Information Technology
+2022-09-14 00:43:41:wordhoard.antonyms:ERROR: A TypeError occurred in the following code segment:
+2022-09-14 00:43:41:wordhoard.antonyms:ERROR:   File "C:\Users\USER\Desktop\LibrarySystem\env\lib\site-packages\wordhoard\antonyms.py", line 330, in _query_wordhippo
+    for href_link in table_row.find('a', href=True):
+
+2022-09-14 00:43:42:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 00:43:42:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 00:43:42:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 00:43:42:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.merriam-webster.com/thesaurus/Information Technology
+2022-09-14 00:43:42:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 00:43:42:wordhoard.synonyms:INFO: Merriam-webster.com had no synonym reference for the word Information Technology
+2022-09-14 00:43:43:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 00:43:43:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 00:43:43:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 00:43:43:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/Information Technology
+2022-09-14 00:43:43:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 00:43:43:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word Information Technology
+2022-09-14 00:48:44:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word Information Technology
+2022-09-14 00:48:46:wordhoard.antonyms:ERROR: A TypeError occurred in the following code segment:
+2022-09-14 00:48:46:wordhoard.antonyms:ERROR:   File "C:\Users\USER\Desktop\LibrarySystem\env\lib\site-packages\wordhoard\antonyms.py", line 330, in _query_wordhippo
+    for href_link in table_row.find('a', href=True):
+
+2022-09-14 00:48:46:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 00:48:46:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 00:48:46:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 00:48:46:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.merriam-webster.com/thesaurus/Information Technology
+2022-09-14 00:48:46:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 00:48:46:wordhoard.synonyms:INFO: Merriam-webster.com had no synonym reference for the word Information Technology
+2022-09-14 00:48:47:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 00:48:47:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 00:48:47:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 00:48:47:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/Information Technology
+2022-09-14 00:48:47:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 00:48:47:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word Information Technology
+2022-09-14 00:48:59:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word Information Technology
+2022-09-14 00:49:02:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 00:49:02:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 00:49:02:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 00:49:02:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.merriam-webster.com/thesaurus/Information Technology
+2022-09-14 00:49:02:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 00:49:02:wordhoard.synonyms:INFO: Merriam-webster.com had no synonym reference for the word Information Technology
+2022-09-14 00:49:03:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 00:49:03:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 00:49:03:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 00:49:03:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/Information Technology
+2022-09-14 00:49:03:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 00:49:03:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word Information Technology
+2022-09-14 00:49:27:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word Information Technology
+2022-09-14 00:49:30:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 00:49:30:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 00:49:30:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 00:49:30:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.merriam-webster.com/thesaurus/Information Technology
+2022-09-14 00:49:30:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 00:49:30:wordhoard.synonyms:INFO: Merriam-webster.com had no synonym reference for the word Information Technology
+2022-09-14 00:49:31:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 00:49:31:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 00:49:31:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 00:49:31:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/Information Technology
+2022-09-14 00:49:31:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 00:49:31:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word Information Technology
+2022-09-14 00:49:32:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word thankful
+2022-09-14 00:51:49:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word thankful
+2022-09-14 08:16:35:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word thankful
+2022-09-14 09:23:10:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word math
+2022-09-14 09:23:28:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word robot
+2022-09-14 09:23:29:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word robot
+2022-09-14 09:23:30:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:23:30:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:23:30:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:23:30:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.merriam-webster.com/thesaurus/robot
+2022-09-14 09:23:30:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:23:30:wordhoard.synonyms:INFO: Merriam-webster.com had no synonym reference for the word robot
+2022-09-14 09:23:31:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:23:31:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:23:31:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:23:31:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.merriam-webster.com/thesaurus/robot
+2022-09-14 09:23:31:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:23:31:wordhoard.synonyms:INFO: Merriam-webster.com had no synonym reference for the word robot
+2022-09-14 09:24:02:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word library
+2022-09-14 09:25:31:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:25:31:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:25:31:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:25:31:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/paul
+2022-09-14 09:25:31:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:25:31:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word paul
+2022-09-14 09:25:33:wordhoard.antonyms:INFO: Wordhippo.com had no antonym reference for the word paul
+2022-09-14 09:25:33:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:25:33:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:25:33:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:25:33:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.merriam-webster.com/thesaurus/paul
+2022-09-14 09:25:33:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:25:33:wordhoard.synonyms:INFO: Merriam-webster.com had no synonym reference for the word paul
+2022-09-14 09:25:34:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:25:34:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:25:34:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:25:34:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/paul
+2022-09-14 09:25:34:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:25:34:wordhoard.synonyms:INFO: Thesaurus.com had no synonym reference for the word paul
+2022-09-14 09:25:52:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word glen
+2022-09-14 09:26:31:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:26:31:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:26:31:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:26:31:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/steve
+2022-09-14 09:26:31:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:26:31:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word steve
+2022-09-14 09:26:32:wordhoard.antonyms:INFO: Wordhippo.com had no antonym reference for the word steve
+2022-09-14 09:26:33:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:26:33:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:26:33:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:26:33:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.merriam-webster.com/thesaurus/steve
+2022-09-14 09:26:33:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:26:33:wordhoard.synonyms:INFO: Merriam-webster.com had no synonym reference for the word steve
+2022-09-14 09:26:34:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:26:34:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:26:34:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:26:34:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/steve
+2022-09-14 09:26:34:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:26:34:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word steve
+2022-09-14 09:26:34:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:26:34:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:26:34:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:26:34:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/steve
+2022-09-14 09:26:34:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:26:34:wordhoard.synonyms:INFO: Thesaurus.com had no synonym reference for the word steve
+2022-09-14 09:26:35:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word steve
+2022-09-14 09:27:18:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:27:18:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:27:18:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:27:18:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/friendzone
+2022-09-14 09:27:18:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:27:18:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word friendzone
+2022-09-14 09:27:20:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:27:20:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:27:20:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:27:20:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.merriam-webster.com/thesaurus/friendzone
+2022-09-14 09:27:20:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:27:20:wordhoard.synonyms:INFO: Merriam-webster.com had no synonym reference for the word friendzone
+2022-09-14 09:27:22:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:27:22:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:27:22:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:27:22:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/friendzone
+2022-09-14 09:27:22:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:27:22:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word friendzone
+2022-09-14 09:27:22:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:27:22:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:27:22:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:27:22:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/friendzone
+2022-09-14 09:27:22:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:27:22:wordhoard.synonyms:INFO: Thesaurus.com had no synonym reference for the word friendzone
+2022-09-14 09:27:22:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word friendzone
+2022-09-14 09:27:57:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:27:57:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:27:57:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:27:57:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/masaya
+2022-09-14 09:27:57:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:27:57:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word masaya
+2022-09-14 09:27:59:wordhoard.antonyms:INFO: Wordhippo.com had no antonym reference for the word masaya
+2022-09-14 09:27:59:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:27:59:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:27:59:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:27:59:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.merriam-webster.com/thesaurus/masaya
+2022-09-14 09:27:59:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:27:59:wordhoard.synonyms:INFO: Merriam-webster.com had no synonym reference for the word masaya
+2022-09-14 09:28:00:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:28:00:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:28:00:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:28:00:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/masaya
+2022-09-14 09:28:00:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:28:00:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word masaya
+2022-09-14 09:28:00:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:28:00:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:28:00:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:28:00:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/masaya
+2022-09-14 09:28:00:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:28:00:wordhoard.synonyms:INFO: Thesaurus.com had no synonym reference for the word masaya
+2022-09-14 09:28:02:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word masaya
+2022-09-14 09:28:30:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:28:30:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:28:30:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:28:30:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/Clide
+2022-09-14 09:28:30:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:28:30:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word Clide
+2022-09-14 09:28:31:wordhoard.antonyms:INFO: Wordhippo.com had no antonym reference for the word Clide
+2022-09-14 09:28:32:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:28:32:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:28:32:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:28:32:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.merriam-webster.com/thesaurus/Clide
+2022-09-14 09:28:32:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:28:32:wordhoard.synonyms:INFO: Merriam-webster.com had no synonym reference for the word Clide
+2022-09-14 09:28:33:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:28:33:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:28:33:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:28:33:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/Clide
+2022-09-14 09:28:33:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:28:33:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word Clide
+2022-09-14 09:28:33:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:28:33:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:28:33:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:28:33:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/Clide
+2022-09-14 09:28:33:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:28:33:wordhoard.synonyms:INFO: Thesaurus.com had no synonym reference for the word Clide
+2022-09-14 09:28:33:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:28:33:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:28:33:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:28:33:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/maganda
+2022-09-14 09:28:33:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:28:33:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word maganda
+2022-09-14 09:28:34:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word Clide
+2022-09-14 09:28:34:wordhoard.antonyms:INFO: Wordhippo.com had no antonym reference for the word maganda
+2022-09-14 09:28:35:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:28:35:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:28:35:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:28:35:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.merriam-webster.com/thesaurus/maganda
+2022-09-14 09:28:35:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:28:35:wordhoard.synonyms:INFO: Merriam-webster.com had no synonym reference for the word maganda
+2022-09-14 09:28:36:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:28:36:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:28:36:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:28:36:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/maganda
+2022-09-14 09:28:36:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:28:36:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word maganda
+2022-09-14 09:28:36:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:28:36:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:28:36:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:28:36:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/maganda
+2022-09-14 09:28:36:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:28:36:wordhoard.synonyms:INFO: Thesaurus.com had no synonym reference for the word maganda
+2022-09-14 09:28:37:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:28:37:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:28:37:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:28:37:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/gagamba
+2022-09-14 09:28:37:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:28:37:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word gagamba
+2022-09-14 09:28:38:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word maganda
+2022-09-14 09:28:39:wordhoard.antonyms:INFO: Wordhippo.com had no antonym reference for the word gagamba
+2022-09-14 09:28:39:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:28:39:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:28:39:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:28:39:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/maganda
+2022-09-14 09:28:39:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:28:39:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word maganda
+2022-09-14 09:28:39:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:28:39:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:28:39:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:28:39:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.merriam-webster.com/thesaurus/gagamba
+2022-09-14 09:28:39:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:28:39:wordhoard.synonyms:INFO: Merriam-webster.com had no synonym reference for the word gagamba
+2022-09-14 09:28:40:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:28:40:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:28:40:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:28:40:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/gagamba
+2022-09-14 09:28:40:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:28:40:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word gagamba
+2022-09-14 09:28:40:wordhoard.antonyms:INFO: Wordhippo.com had no antonym reference for the word maganda
+2022-09-14 09:28:40:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:28:40:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:28:40:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:28:40:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/gagamba
+2022-09-14 09:28:40:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:28:40:wordhoard.synonyms:INFO: Thesaurus.com had no synonym reference for the word gagamba
+2022-09-14 09:28:40:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:28:40:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:28:40:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:28:40:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.merriam-webster.com/thesaurus/maganda
+2022-09-14 09:28:40:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:28:40:wordhoard.synonyms:INFO: Merriam-webster.com had no synonym reference for the word maganda
+2022-09-14 09:28:40:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:28:40:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:28:40:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:28:40:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/maganda
+2022-09-14 09:28:40:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:28:40:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word maganda
+2022-09-14 09:28:41:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:28:41:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:28:41:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:28:41:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/maganda
+2022-09-14 09:28:41:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:28:41:wordhoard.synonyms:INFO: Thesaurus.com had no synonym reference for the word maganda
+2022-09-14 09:28:41:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word gagamba
+2022-09-14 09:28:41:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word maganda
+2022-09-14 09:28:50:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:28:50:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:28:50:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:28:50:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/adobo
+2022-09-14 09:28:50:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:28:50:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word adobo
+2022-09-14 09:28:52:wordhoard.antonyms:INFO: Wordhippo.com had no antonym reference for the word adobo
+2022-09-14 09:28:52:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:28:52:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:28:52:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:28:52:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.merriam-webster.com/thesaurus/adobo
+2022-09-14 09:28:52:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:28:52:wordhoard.synonyms:INFO: Merriam-webster.com had no synonym reference for the word adobo
+2022-09-14 09:28:54:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:28:54:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:28:54:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:28:54:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/adobo
+2022-09-14 09:28:54:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:28:54:wordhoard.synonyms:INFO: Thesaurus.com had no synonym reference for the word adobo
+2022-09-14 09:29:05:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:29:05:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:29:05:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:29:05:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/Paa
+2022-09-14 09:29:05:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:29:05:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word Paa
+2022-09-14 09:29:06:wordhoard.antonyms:INFO: Wordhippo.com had no antonym reference for the word Paa
+2022-09-14 09:29:07:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:29:07:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:29:07:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:29:07:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.merriam-webster.com/thesaurus/Paa
+2022-09-14 09:29:07:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:29:07:wordhoard.synonyms:INFO: Merriam-webster.com had no synonym reference for the word Paa
+2022-09-14 09:29:08:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:29:08:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:29:08:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:29:08:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/Paa
+2022-09-14 09:29:08:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:29:08:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word Paa
+2022-09-14 09:29:08:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:29:08:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:29:08:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:29:08:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/Paa
+2022-09-14 09:29:08:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:29:08:wordhoard.synonyms:INFO: Thesaurus.com had no synonym reference for the word Paa
+2022-09-14 09:29:08:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word Paa
+2022-09-14 09:29:15:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:29:15:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:29:15:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:29:15:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/masaya
+2022-09-14 09:29:15:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:29:15:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word masaya
+2022-09-14 09:29:17:wordhoard.antonyms:INFO: Wordhippo.com had no antonym reference for the word masaya
+2022-09-14 09:29:17:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:29:17:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:29:17:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:29:17:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.merriam-webster.com/thesaurus/masaya
+2022-09-14 09:29:17:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:29:17:wordhoard.synonyms:INFO: Merriam-webster.com had no synonym reference for the word masaya
+2022-09-14 09:29:18:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:29:18:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:29:18:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:29:18:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/masaya
+2022-09-14 09:29:18:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:29:18:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word masaya
+2022-09-14 09:29:18:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:29:18:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:29:18:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:29:18:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/masaya
+2022-09-14 09:29:18:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:29:18:wordhoard.synonyms:INFO: Thesaurus.com had no synonym reference for the word masaya
+2022-09-14 09:29:19:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word masaya
+2022-09-14 09:29:37:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:29:37:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:29:37:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:29:37:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/adobo
+2022-09-14 09:29:37:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:29:37:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word adobo
+2022-09-14 09:29:38:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:29:38:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:29:38:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:29:38:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/malunkot
+2022-09-14 09:29:38:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:29:38:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word malunkot
+2022-09-14 09:29:38:wordhoard.antonyms:INFO: Wordhippo.com had no antonym reference for the word adobo
+2022-09-14 09:29:39:wordhoard.antonyms:INFO: Wordhippo.com had no antonym reference for the word malunkot
+2022-09-14 09:29:40:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:29:40:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:29:40:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:29:40:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.merriam-webster.com/thesaurus/malunkot
+2022-09-14 09:29:40:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:29:40:wordhoard.synonyms:INFO: Merriam-webster.com had no synonym reference for the word malunkot
+2022-09-14 09:29:41:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:29:41:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:29:41:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:29:41:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/malunkot
+2022-09-14 09:29:41:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:29:41:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word malunkot
+2022-09-14 09:29:41:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:29:41:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:29:41:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:29:41:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/malunkot
+2022-09-14 09:29:41:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:29:41:wordhoard.synonyms:INFO: Thesaurus.com had no synonym reference for the word malunkot
+2022-09-14 09:29:42:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word malunkot
+2022-09-14 09:29:47:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:29:47:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:29:47:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:29:47:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/malungkot
+2022-09-14 09:29:47:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:29:47:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word malungkot
+2022-09-14 09:29:48:wordhoard.antonyms:INFO: Wordhippo.com had no antonym reference for the word malungkot
+2022-09-14 09:29:49:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:29:49:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:29:49:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:29:49:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.merriam-webster.com/thesaurus/malungkot
+2022-09-14 09:29:49:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:29:49:wordhoard.synonyms:INFO: Merriam-webster.com had no synonym reference for the word malungkot
+2022-09-14 09:29:50:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:29:50:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:29:50:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:29:50:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/malungkot
+2022-09-14 09:29:50:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:29:50:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word malungkot
+2022-09-14 09:29:50:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:29:50:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:29:50:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:29:50:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/malungkot
+2022-09-14 09:29:50:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:29:50:wordhoard.synonyms:INFO: Thesaurus.com had no synonym reference for the word malungkot
+2022-09-14 09:29:52:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word malungkot
+2022-09-14 09:30:04:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:30:04:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:30:04:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:30:04:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/manok
+2022-09-14 09:30:04:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:30:04:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word manok
+2022-09-14 09:30:05:wordhoard.antonyms:INFO: Wordhippo.com had no antonym reference for the word manok
+2022-09-14 09:30:06:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:30:06:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:30:06:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:30:06:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.merriam-webster.com/thesaurus/manok
+2022-09-14 09:30:06:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:30:06:wordhoard.synonyms:INFO: Merriam-webster.com had no synonym reference for the word manok
+2022-09-14 09:30:07:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:30:07:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:30:07:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:30:07:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/manok
+2022-09-14 09:30:07:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:30:07:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word manok
+2022-09-14 09:30:07:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:30:07:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 09:30:07:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 09:30:07:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/manok
+2022-09-14 09:30:07:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 09:30:07:wordhoard.synonyms:INFO: Thesaurus.com had no synonym reference for the word manok
+2022-09-14 09:30:08:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word manok
+2022-09-14 10:03:05:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word thankful
+2022-09-14 10:03:16:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 10:03:16:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 10:03:16:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 10:03:16:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/Power
+2022-09-14 10:03:16:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 10:03:16:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word Power
+2022-09-14 10:13:09:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 10:13:09:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 10:13:09:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 10:13:09:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/Power
+2022-09-14 10:13:09:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 10:13:09:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word Power
+2022-09-14 10:13:48:wordhoard.antonyms:ERROR: A TypeError occurred in the following code segment:
+2022-09-14 10:13:48:wordhoard.antonyms:ERROR:   File "C:\Users\USER\Desktop\LibrarySystem\env\lib\site-packages\wordhoard\antonyms.py", line 330, in _query_wordhippo
+    for href_link in table_row.find('a', href=True):
+
+2022-09-14 10:13:50:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 10:13:50:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 10:13:50:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 10:13:50:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/Power
+2022-09-14 10:13:50:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 10:13:50:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word Power
+2022-09-14 10:14:07:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 10:14:07:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 10:14:07:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 10:14:07:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/Power
+2022-09-14 10:14:07:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 10:14:07:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word Power
+2022-09-14 10:14:17:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word thankful
+2022-09-14 10:17:09:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word thankful
+2022-09-14 10:26:33:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word thankful
+2022-09-14 10:27:19:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word thankful
+2022-09-14 10:43:05:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word thankful
+2022-09-14 10:53:07:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word thankful
+2022-09-14 15:14:28:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word thankful
+2022-09-14 15:26:37:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word thankful
+2022-09-14 15:30:30:wordhoard.antonyms:ERROR: A TypeError occurred in the following code segment:
+2022-09-14 15:30:30:wordhoard.antonyms:ERROR:   File "C:\Users\USER\Desktop\LibrarySystem\env\lib\site-packages\wordhoard\antonyms.py", line 330, in _query_wordhippo
+    for href_link in table_row.find('a', href=True):
+
+2022-09-14 15:30:32:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 15:30:32:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 15:30:32:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 15:30:32:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/Power
+2022-09-14 15:30:32:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 15:30:32:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word Power
+2022-09-14 15:30:47:wordhoard.antonyms:ERROR: A TypeError occurred in the following code segment:
+2022-09-14 15:30:47:wordhoard.antonyms:ERROR:   File "C:\Users\USER\Desktop\LibrarySystem\env\lib\site-packages\wordhoard\antonyms.py", line 330, in _query_wordhippo
+    for href_link in table_row.find('a', href=True):
+
+2022-09-14 15:38:26:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 15:38:26:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 15:38:26:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 15:38:26:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/Infinitode
+2022-09-14 15:38:26:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 15:38:26:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word Infinitode
+2022-09-14 15:38:27:wordhoard.antonyms:INFO: Wordhippo.com had no antonym reference for the word Infinitode
+2022-09-14 15:38:28:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 15:38:28:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 15:38:28:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 15:38:28:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.merriam-webster.com/thesaurus/Infinitode
+2022-09-14 15:38:28:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 15:38:28:wordhoard.synonyms:INFO: Merriam-webster.com had no synonym reference for the word Infinitode
+2022-09-14 15:38:29:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 15:38:29:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 15:38:29:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 15:38:29:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/Infinitode
+2022-09-14 15:38:29:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 15:38:29:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word Infinitode
+2022-09-14 15:38:29:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 15:38:29:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 15:38:29:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 15:38:29:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/Infinitode
+2022-09-14 15:38:29:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 15:38:29:wordhoard.synonyms:INFO: Thesaurus.com had no synonym reference for the word Infinitode
+2022-09-14 15:38:30:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word Infinitode
+2022-09-14 15:38:36:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word Information Technology
+2022-09-14 15:38:38:wordhoard.antonyms:ERROR: A TypeError occurred in the following code segment:
+2022-09-14 15:38:38:wordhoard.antonyms:ERROR:   File "C:\Users\USER\Desktop\LibrarySystem\env\lib\site-packages\wordhoard\antonyms.py", line 330, in _query_wordhippo
+    for href_link in table_row.find('a', href=True):
+
+2022-09-14 15:38:39:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 15:38:39:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 15:38:39:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 15:38:39:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.merriam-webster.com/thesaurus/Information Technology
+2022-09-14 15:38:39:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 15:38:39:wordhoard.synonyms:INFO: Merriam-webster.com had no synonym reference for the word Information Technology
+2022-09-14 15:38:39:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 15:38:39:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 15:38:39:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 15:38:39:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/Information Technology
+2022-09-14 15:38:39:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 15:38:39:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word Information Technology
+2022-09-14 15:38:56:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word Information Technology
+2022-09-14 15:38:58:wordhoard.antonyms:ERROR: A TypeError occurred in the following code segment:
+2022-09-14 15:38:58:wordhoard.antonyms:ERROR:   File "C:\Users\USER\Desktop\LibrarySystem\env\lib\site-packages\wordhoard\antonyms.py", line 330, in _query_wordhippo
+    for href_link in table_row.find('a', href=True):
+
+2022-09-14 15:39:02:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 15:39:02:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 15:39:02:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 15:39:02:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/Infinitode
+2022-09-14 15:39:02:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 15:39:02:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word Infinitode
+2022-09-14 15:39:03:wordhoard.antonyms:INFO: Wordhippo.com had no antonym reference for the word Infinitode
+2022-09-14 15:39:03:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 15:39:03:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 15:39:03:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 15:39:03:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.merriam-webster.com/thesaurus/Infinitode
+2022-09-14 15:39:03:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 15:39:03:wordhoard.synonyms:INFO: Merriam-webster.com had no synonym reference for the word Infinitode
+2022-09-14 15:39:04:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 15:39:04:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 15:39:04:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 15:39:04:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/Infinitode
+2022-09-14 15:39:04:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 15:39:04:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word Infinitode
+2022-09-14 15:39:05:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 15:39:05:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 15:39:05:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 15:39:05:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/Infinitode
+2022-09-14 15:39:05:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 15:39:05:wordhoard.synonyms:INFO: Thesaurus.com had no synonym reference for the word Infinitode
+2022-09-14 15:39:06:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word Infinitode
+2022-09-14 15:41:07:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word thankful
+2022-09-14 15:48:23:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word thankful
+2022-09-14 15:48:31:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 15:48:31:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 15:48:31:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 15:48:31:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/JAKE
+2022-09-14 15:48:31:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 15:48:31:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word JAKE
+2022-09-14 15:48:33:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word JAKE
+2022-09-14 15:48:48:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 15:48:48:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 15:48:48:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 15:48:48:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/Power
+2022-09-14 15:48:48:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 15:48:48:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word Power
+2022-09-14 15:51:01:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word thankful
+2022-09-14 15:56:08:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 15:56:08:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 15:56:08:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 15:56:08:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/Bahay
+2022-09-14 15:56:08:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 15:56:08:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word Bahay
+2022-09-14 15:56:10:wordhoard.antonyms:INFO: Wordhippo.com had no antonym reference for the word Bahay
+2022-09-14 15:56:10:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 15:56:10:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 15:56:10:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 15:56:10:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.merriam-webster.com/thesaurus/Bahay
+2022-09-14 15:56:10:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 15:56:10:wordhoard.synonyms:INFO: Merriam-webster.com had no synonym reference for the word Bahay
+2022-09-14 15:56:11:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 15:56:11:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 15:56:11:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 15:56:11:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/Bahay
+2022-09-14 15:56:11:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 15:56:11:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word Bahay
+2022-09-14 15:56:11:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 15:56:11:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 15:56:11:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 15:56:11:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/Bahay
+2022-09-14 15:56:11:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 15:56:11:wordhoard.synonyms:INFO: Thesaurus.com had no synonym reference for the word Bahay
+2022-09-14 15:56:12:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word Bahay
+2022-09-14 15:56:45:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 15:56:45:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 15:56:45:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 15:56:45:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/Kamay
+2022-09-14 15:56:45:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 15:56:45:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word Kamay
+2022-09-14 15:56:46:wordhoard.antonyms:INFO: Wordhippo.com had no antonym reference for the word Kamay
+2022-09-14 15:56:46:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 15:56:46:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 15:56:46:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 15:56:46:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.merriam-webster.com/thesaurus/Kamay
+2022-09-14 15:56:46:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 15:56:46:wordhoard.synonyms:INFO: Merriam-webster.com had no synonym reference for the word Kamay
+2022-09-14 15:56:47:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 15:56:47:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 15:56:47:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 15:56:47:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/Kamay
+2022-09-14 15:56:47:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 15:56:47:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word Kamay
+2022-09-14 15:56:47:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 15:56:47:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 15:56:47:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 15:56:47:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/Kamay
+2022-09-14 15:56:47:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 15:56:47:wordhoard.synonyms:INFO: Thesaurus.com had no synonym reference for the word Kamay
+2022-09-14 15:56:48:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word Kamay
+2022-09-14 16:00:00:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 16:00:00:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 16:00:00:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 16:00:00:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/Aba
+2022-09-14 16:00:00:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 16:00:00:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word Aba
+2022-09-14 16:00:01:wordhoard.antonyms:INFO: Wordhippo.com had no antonym reference for the word Aba
+2022-09-14 16:00:02:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 16:00:02:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 16:00:02:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 16:00:02:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.merriam-webster.com/thesaurus/Aba
+2022-09-14 16:00:02:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 16:00:02:wordhoard.synonyms:INFO: Merriam-webster.com had no synonym reference for the word Aba
+2022-09-14 16:00:03:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 16:00:03:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 16:00:03:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 16:00:03:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/Aba
+2022-09-14 16:00:03:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 16:00:03:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word Aba
+2022-09-14 16:00:03:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 16:00:03:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 16:00:03:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 16:00:03:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/Aba
+2022-09-14 16:00:03:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 16:00:03:wordhoard.synonyms:INFO: Thesaurus.com had no synonym reference for the word Aba
+2022-09-14 16:04:43:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 16:04:43:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 16:04:43:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 16:04:43:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/aba
+2022-09-14 16:04:43:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 16:04:43:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word aba
+2022-09-14 16:04:44:wordhoard.antonyms:INFO: Wordhippo.com had no antonym reference for the word aba
+2022-09-14 16:04:45:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 16:04:45:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 16:04:45:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 16:04:45:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.merriam-webster.com/thesaurus/aba
+2022-09-14 16:04:45:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 16:04:45:wordhoard.synonyms:INFO: Merriam-webster.com had no synonym reference for the word aba
+2022-09-14 16:04:46:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 16:04:46:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 16:04:46:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 16:04:46:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/aba
+2022-09-14 16:04:46:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 16:04:46:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word aba
+2022-09-14 16:04:46:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 16:04:46:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 16:04:46:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 16:04:46:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/aba
+2022-09-14 16:04:46:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 16:04:46:wordhoard.synonyms:INFO: Thesaurus.com had no synonym reference for the word aba
+2022-09-14 16:05:31:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 16:05:31:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 16:05:31:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 16:05:31:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/abakada
+2022-09-14 16:05:31:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 16:05:31:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word abakada
+2022-09-14 16:05:33:wordhoard.antonyms:INFO: Wordhippo.com had no antonym reference for the word abakada
+2022-09-14 16:05:33:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 16:05:33:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 16:05:33:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 16:05:33:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.merriam-webster.com/thesaurus/abakada
+2022-09-14 16:05:33:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 16:05:33:wordhoard.synonyms:INFO: Merriam-webster.com had no synonym reference for the word abakada
+2022-09-14 16:05:34:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 16:05:34:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 16:05:34:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 16:05:34:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/abakada
+2022-09-14 16:05:34:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 16:05:34:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word abakada
+2022-09-14 16:05:34:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 16:05:34:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 16:05:34:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 16:05:34:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/abakada
+2022-09-14 16:05:34:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 16:05:34:wordhoard.synonyms:INFO: Thesaurus.com had no synonym reference for the word abakada
+2022-09-14 16:05:35:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word abakada
+2022-09-14 16:34:54:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 16:34:54:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 16:34:54:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 16:34:54:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/maganda
+2022-09-14 16:34:54:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 16:34:54:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word maganda
+2022-09-14 16:34:55:wordhoard.antonyms:INFO: Wordhippo.com had no antonym reference for the word maganda
+2022-09-14 16:34:56:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 16:34:56:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 16:34:56:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 16:34:56:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.merriam-webster.com/thesaurus/maganda
+2022-09-14 16:34:56:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 16:34:56:wordhoard.synonyms:INFO: Merriam-webster.com had no synonym reference for the word maganda
+2022-09-14 16:34:57:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 16:34:57:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 16:34:57:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 16:34:57:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/maganda
+2022-09-14 16:34:57:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 16:34:57:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word maganda
+2022-09-14 16:34:57:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 16:34:57:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 16:34:57:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 16:34:57:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/maganda
+2022-09-14 16:34:57:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 16:34:57:wordhoard.synonyms:INFO: Thesaurus.com had no synonym reference for the word maganda
+2022-09-14 16:34:58:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word maganda
+2022-09-14 16:49:27:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word way
+2022-09-14 19:27:03:wordhoard.antonyms:ERROR: The word  was not in a valid format.
+2022-09-14 19:27:03:wordhoard.antonyms:ERROR: Please verify that the word  is spelled correctly.
+2022-09-14 19:27:03:wordhoard.synonyms:ERROR: The word  was not in a valid format.
+2022-09-14 19:27:03:wordhoard.synonyms:ERROR: Please verify that the word  is spelled correctly.
+2022-09-14 19:27:06:wordhoard.antonyms:ERROR: The word  was not in a valid format.
+2022-09-14 19:27:06:wordhoard.antonyms:ERROR: Please verify that the word  is spelled correctly.
+2022-09-14 19:27:06:wordhoard.synonyms:ERROR: The word  was not in a valid format.
+2022-09-14 19:27:06:wordhoard.synonyms:ERROR: Please verify that the word  is spelled correctly.
+2022-09-14 19:27:09:wordhoard.antonyms:ERROR: The word  was not in a valid format.
+2022-09-14 19:27:09:wordhoard.antonyms:ERROR: Please verify that the word  is spelled correctly.
+2022-09-14 19:27:09:wordhoard.synonyms:ERROR: The word  was not in a valid format.
+2022-09-14 19:27:09:wordhoard.synonyms:ERROR: Please verify that the word  is spelled correctly.
+2022-09-14 19:27:12:wordhoard.antonyms:ERROR: The word  was not in a valid format.
+2022-09-14 19:27:12:wordhoard.antonyms:ERROR: Please verify that the word  is spelled correctly.
+2022-09-14 19:27:12:wordhoard.synonyms:ERROR: The word  was not in a valid format.
+2022-09-14 19:27:12:wordhoard.synonyms:ERROR: Please verify that the word  is spelled correctly.
+2022-09-14 19:27:40:wordhoard.antonyms:ERROR: The word  was not in a valid format.
+2022-09-14 19:27:40:wordhoard.antonyms:ERROR: Please verify that the word  is spelled correctly.
+2022-09-14 19:27:40:wordhoard.synonyms:ERROR: The word  was not in a valid format.
+2022-09-14 19:27:40:wordhoard.synonyms:ERROR: Please verify that the word  is spelled correctly.
+2022-09-14 19:27:42:wordhoard.antonyms:ERROR: The word  was not in a valid format.
+2022-09-14 19:27:42:wordhoard.antonyms:ERROR: Please verify that the word  is spelled correctly.
+2022-09-14 19:27:42:wordhoard.synonyms:ERROR: The word  was not in a valid format.
+2022-09-14 19:27:42:wordhoard.synonyms:ERROR: Please verify that the word  is spelled correctly.
+2022-09-14 19:27:47:wordhoard.antonyms:ERROR: The word  was not in a valid format.
+2022-09-14 19:27:47:wordhoard.antonyms:ERROR: Please verify that the word  is spelled correctly.
+2022-09-14 19:27:47:wordhoard.synonyms:ERROR: The word  was not in a valid format.
+2022-09-14 19:27:47:wordhoard.synonyms:ERROR: Please verify that the word  is spelled correctly.
+2022-09-14 19:27:48:wordhoard.antonyms:ERROR: The word  was not in a valid format.
+2022-09-14 19:27:48:wordhoard.antonyms:ERROR: Please verify that the word  is spelled correctly.
+2022-09-14 19:27:48:wordhoard.synonyms:ERROR: The word  was not in a valid format.
+2022-09-14 19:27:48:wordhoard.synonyms:ERROR: Please verify that the word  is spelled correctly.
+2022-09-14 19:27:49:wordhoard.antonyms:ERROR: The word  was not in a valid format.
+2022-09-14 19:27:49:wordhoard.antonyms:ERROR: Please verify that the word  is spelled correctly.
+2022-09-14 19:27:49:wordhoard.synonyms:ERROR: The word  was not in a valid format.
+2022-09-14 19:27:49:wordhoard.synonyms:ERROR: Please verify that the word  is spelled correctly.
+2022-09-14 19:27:52:wordhoard.antonyms:ERROR: The word  was not in a valid format.
+2022-09-14 19:27:52:wordhoard.antonyms:ERROR: Please verify that the word  is spelled correctly.
+2022-09-14 19:27:52:wordhoard.synonyms:ERROR: The word  was not in a valid format.
+2022-09-14 19:27:52:wordhoard.synonyms:ERROR: Please verify that the word  is spelled correctly.
+2022-09-14 19:27:54:wordhoard.antonyms:ERROR: The word  was not in a valid format.
+2022-09-14 19:27:54:wordhoard.antonyms:ERROR: Please verify that the word  is spelled correctly.
+2022-09-14 19:27:54:wordhoard.synonyms:ERROR: The word  was not in a valid format.
+2022-09-14 19:27:54:wordhoard.synonyms:ERROR: Please verify that the word  is spelled correctly.
+2022-09-14 19:27:55:wordhoard.antonyms:ERROR: The word  was not in a valid format.
+2022-09-14 19:27:55:wordhoard.antonyms:ERROR: Please verify that the word  is spelled correctly.
+2022-09-14 19:27:55:wordhoard.synonyms:ERROR: The word  was not in a valid format.
+2022-09-14 19:27:55:wordhoard.synonyms:ERROR: Please verify that the word  is spelled correctly.
+2022-09-14 19:27:56:wordhoard.antonyms:ERROR: The word  was not in a valid format.
+2022-09-14 19:27:56:wordhoard.antonyms:ERROR: Please verify that the word  is spelled correctly.
+2022-09-14 19:27:56:wordhoard.synonyms:ERROR: The word  was not in a valid format.
+2022-09-14 19:27:56:wordhoard.synonyms:ERROR: Please verify that the word  is spelled correctly.
+2022-09-14 19:28:05:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word thankful
+2022-09-14 19:31:44:wordhoard.antonyms:ERROR: The word  was not in a valid format.
+2022-09-14 19:31:44:wordhoard.antonyms:ERROR: Please verify that the word  is spelled correctly.
+2022-09-14 19:31:44:wordhoard.synonyms:ERROR: The word  was not in a valid format.
+2022-09-14 19:31:44:wordhoard.synonyms:ERROR: Please verify that the word  is spelled correctly.
+2022-09-14 19:31:55:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 19:31:55:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 19:31:55:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 19:31:55:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/Power
+2022-09-14 19:31:55:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 19:31:55:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word Power
+2022-09-14 19:32:06:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word Information Technology
+2022-09-14 19:32:09:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 19:32:09:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 19:32:09:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 19:32:09:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.merriam-webster.com/thesaurus/Information Technology
+2022-09-14 19:32:09:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 19:32:09:wordhoard.synonyms:INFO: Merriam-webster.com had no synonym reference for the word Information Technology
+2022-09-14 19:32:10:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 19:32:10:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 19:32:10:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 19:32:10:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/Information Technology
+2022-09-14 19:32:10:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 19:32:10:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word Information Technology
+2022-09-14 19:32:43:wordhoard.antonyms:ERROR: The word  was not in a valid format.
+2022-09-14 19:32:43:wordhoard.antonyms:ERROR: Please verify that the word  is spelled correctly.
+2022-09-14 19:32:43:wordhoard.synonyms:ERROR: The word  was not in a valid format.
+2022-09-14 19:32:43:wordhoard.synonyms:ERROR: Please verify that the word  is spelled correctly.
+2022-09-14 19:36:15:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word thankful
+2022-09-14 19:38:08:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word thankful
+2022-09-14 19:38:14:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word Information Technology
+2022-09-14 19:38:17:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 19:38:17:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 19:38:17:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 19:38:17:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.merriam-webster.com/thesaurus/Information Technology
+2022-09-14 19:38:17:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 19:38:17:wordhoard.synonyms:INFO: Merriam-webster.com had no synonym reference for the word Information Technology
+2022-09-14 19:38:18:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 19:38:18:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 19:38:18:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 19:38:18:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/Information Technology
+2022-09-14 19:38:18:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 19:38:18:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word Information Technology
+2022-09-14 19:46:10:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word Information Technology
+2022-09-14 19:46:12:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word Information Technology
+2022-09-14 19:46:14:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 19:46:14:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 19:46:14:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 19:46:14:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.merriam-webster.com/thesaurus/Information Technology
+2022-09-14 19:46:14:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 19:46:14:wordhoard.synonyms:INFO: Merriam-webster.com had no synonym reference for the word Information Technology
+2022-09-14 19:46:15:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 19:46:15:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 19:46:15:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 19:46:15:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.merriam-webster.com/thesaurus/Information Technology
+2022-09-14 19:46:15:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 19:46:15:wordhoard.synonyms:INFO: Merriam-webster.com had no synonym reference for the word Information Technology
+2022-09-14 19:46:15:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 19:46:15:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 19:46:15:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 19:46:15:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/Information Technology
+2022-09-14 19:46:15:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 19:46:15:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word Information Technology
+2022-09-14 19:46:15:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 19:46:15:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 19:46:15:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 19:46:15:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/Information Technology
+2022-09-14 19:46:15:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 19:46:15:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word Information Technology
+2022-09-14 19:46:15:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 19:46:15:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 19:46:15:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 19:46:15:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.merriam-webster.com/thesaurus/Information Technology
+2022-09-14 19:46:15:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 19:46:15:wordhoard.synonyms:INFO: Merriam-webster.com had no synonym reference for the word Information Technology
+2022-09-14 19:46:16:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 19:46:16:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 19:46:16:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 19:46:16:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/Information Technology
+2022-09-14 19:46:16:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 19:46:16:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word Information Technology
+2022-09-14 19:47:41:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word thankful
+2022-09-14 19:48:06:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 19:48:06:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-14 19:48:06:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-14 19:48:06:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/Power
+2022-09-14 19:48:06:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-14 19:48:06:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word Power
+2022-09-14 19:49:23:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word thankful
+2022-09-14 21:05:15:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word thankful
+2022-09-15 09:48:39:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word library
+2022-09-15 09:52:17:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word thankful
+2022-09-15 20:31:53:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word Information Technology
+2022-09-15 20:31:56:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-15 20:31:56:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-15 20:31:56:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-15 20:31:56:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.merriam-webster.com/thesaurus/Information Technology
+2022-09-15 20:31:56:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-15 20:31:56:wordhoard.synonyms:INFO: Merriam-webster.com had no synonym reference for the word Information Technology
+2022-09-15 20:31:57:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-15 20:31:57:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-15 20:31:57:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-15 20:31:57:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/Information Technology
+2022-09-15 20:31:57:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-15 20:31:57:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word Information Technology
+2022-09-15 21:28:46:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-15 21:28:46:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-15 21:28:46:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-15 21:28:46:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/winnona
+2022-09-15 21:28:46:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-15 21:28:46:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word winnona
+2022-09-15 21:28:48:wordhoard.antonyms:INFO: Wordhippo.com had no antonym reference for the word winnona
+2022-09-15 21:28:49:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-15 21:28:49:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-15 21:28:49:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-15 21:28:49:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.merriam-webster.com/thesaurus/winnona
+2022-09-15 21:28:49:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-15 21:28:49:wordhoard.synonyms:INFO: Merriam-webster.com had no synonym reference for the word winnona
+2022-09-15 21:28:50:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-15 21:28:50:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-15 21:28:50:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-15 21:28:50:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/winnona
+2022-09-15 21:28:50:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-15 21:28:50:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word winnona
+2022-09-15 21:28:50:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-15 21:28:50:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-15 21:28:50:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-15 21:28:50:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.thesaurus.com/browse/winnona
+2022-09-15 21:28:50:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-15 21:28:50:wordhoard.synonyms:INFO: Thesaurus.com had no synonym reference for the word winnona
+2022-09-15 21:28:51:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word winnona
+2022-09-16 01:25:39:wordhoard.antonyms:INFO: Thesaurus.com had no antonym reference for the word Information Technology
+2022-09-16 01:25:41:wordhoard.antonyms:ERROR: A TypeError occurred in the following code segment:
+2022-09-16 01:25:41:wordhoard.antonyms:ERROR:   File "C:\Users\USER\Desktop\LibrarySystem\env\lib\site-packages\wordhoard\antonyms.py", line 330, in _query_wordhippo
+    for href_link in table_row.find('a', href=True):
+
+2022-09-16 01:25:42:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-16 01:25:42:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-16 01:25:42:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-16 01:25:42:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.merriam-webster.com/thesaurus/Information Technology
+2022-09-16 01:25:42:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-16 01:25:42:wordhoard.synonyms:INFO: Merriam-webster.com had no synonym reference for the word Information Technology
+2022-09-16 01:25:43:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-16 01:25:43:wordhoard.utilities.basic_soup:ERROR: Response Status Code: 404
+2022-09-16 01:25:43:wordhoard.utilities.basic_soup:INFO: The HTTP 404 Not Found status code means that the file or page that the was requested was not found on the server
+2022-09-16 01:25:43:wordhoard.utilities.basic_soup:INFO: Requested URL: https://www.synonym.com/synonyms/Information Technology
+2022-09-16 01:25:43:wordhoard.utilities.basic_soup:INFO: --------------------------------------------------------------------------------
+2022-09-16 01:25:43:wordhoard.synonyms:INFO: Synonym.com had no synonym reference for the word Information Technology
+2023-06-13 22:58:33:wordhoard.synonyms:INFO: Wordnet had no synonym reference for the word thankful

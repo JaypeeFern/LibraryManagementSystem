@@ -1,0 +1,62 @@
+{% extends 'Home/layout.html' %}
+{% block body %}
+{% load static %}
+
+
+  <!-- ======= Hero Section ======= -->
+<section id="hero" class="hero d-flex align-items-center min-vh-100">
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center">
+            <div class="card" style="width: 35rem;">
+                <div class="d-flex justify-content-center mt-4 mb-auto">
+                    <img class="img-thumbnail img-fluid card-img-top" src="{% static 'Home/assets/Student.png'%}" style="max-width: 160px; max-height: 160px; border-radius: 50%; box-shadow: 0 3px 5px;">
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title text-center mb-4 lead fs-5 fw-bold">Student Log</h5>
+                  <form method="POST" action="{% url 'Attendance' %}">
+                    {% csrf_token %}
+                    {% if user.is_authenticated %}
+                    <div class="form-floating mb-3">
+                        {{form.Student_Name}}
+                        <label for="floatingPlaintextInput">Enter Full Name</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" hidden name="user" class="user form-control-plaintext" placeholder="#" id="floatingPlaintextInput" required="" readonly>
+                        <label for="floatingPlaintextInput">User ID</label>
+                    </div>
+                    {% endif %}
+                    <div class="form-floating">
+                        {{form.Grade_and_Section}}
+                        <label for="floatingSelect">Grade and Section</label>
+                    </div>
+                    <div class="d-flex justify-content-center d-grid gap-3">
+                        <input type="submit" class="btn btn-outline-primary" value="Submit">
+                    </div>
+                </form>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+</section><!-- End Hero Section -->
+
+<script>
+const input = document.querySelector('input[name="Student_Name"]');
+input.setAttribute("value", "{{user.first_name}}");
+const input2 = document.querySelector('.user');
+input2.setAttribute("value", "{{user.id}}")
+</script>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+

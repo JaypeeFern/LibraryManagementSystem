@@ -1,0 +1,45 @@
+{% load static %}
+ <!-- Modal -->
+  <div class="modal fade" id="teacherModal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="teacherModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="modal-body">
+
+            <div class="row mb-2">
+              <div class="col-7 d-flex justify-content-start">
+                <img src="{% static 'Home/assets/Logo.svg' %}" class="mt-auto mb-auto img-thumbnail img-fluid" width="50px" height="50px" style="border-radius: 50%;">
+                <p class="fs-6 lead mt-auto mb-auto">BVMCES Library System</p>
+              </div>
+              <div class="col-5 d-flex justify-content-end">
+                <p class="fs-6 mt-auto mb-auto fw-bold text-uppercase">Teacher Login</p>
+              </div>
+            </div>
+    
+            <hr class="m-0 mb-3">
+
+            <div class="col-12 d-flex flex-column justify-content-center">
+
+              <form method="POST" action="{% url 'Teacher' %}">
+              {% csrf_token %}
+              <div class="form-floating mb-3">
+                {{ form.username }}
+                <label for="username" class="form-lable">Username</label>
+              </div>
+              <div class="form-floating mb-3">
+                {{ form.password }}
+                <label for="password" class="form-lable">Password</label>
+              </div>
+              <div class="d-flex justify-content-center p-2">
+                <input type="submit" class="btn btn-outline-primary w-100" value="Login" aria-describedby="loginHelp">
+              </div>
+              </form>
+            </div>
+
+
+    
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
