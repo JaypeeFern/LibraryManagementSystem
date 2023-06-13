@@ -1,0 +1,162 @@
+{% extends 'Dashboard/layout-features.html' %}
+{% block body %}
+{% load static %}
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="hero d-flex align-items-center min-vh-100">
+    <div class="container">
+        <div class="row">
+            <Div class="col">
+                <div class="card text-black">
+                    <div class="card-header">
+                      <div class="row">
+                        <div class="col-12 col-md-8 mb-2 mb-md-0">
+                          <p class="lead fs-5 d-flex my-auto justify-content-center justify-content-md-start">Grade and Sections</p>
+                        </div>
+                        <div class="col-12 col-md-4 d-flex gap-2 justify-content-center justify-content-md-end"> 
+                          <a href="{% url 'System' %}">
+                            <button type="button" class="btn btn-outline-primary"><i class="bi fa-lg bi-arrow-left-short"></i>System Users</button>
+                          </a>
+                          <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#addGrade">Add Grade and Section</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                        <table id="table_id" class="table table-bordered table-striped table-responsive" width="100%"> 
+                        <thead>
+                          <tr>
+                            <th>Grade And Section</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for data in data %}
+                          <tr>
+                            <td>{{data.Grades}}</td>
+                            {% if data.id %}
+                            <td>
+                              <button type="button" class="update_section btn btn-outline-primary block me-1" data-form-url="{% url 'UpdateSection' data.id %}">
+                                <i class="bi bi-pencil-square"></i>
+                              </button>   
+                              <button type="button" class="delete_location btn btn-outline-danger block" data-form-url="{% url 'DeleteSection' data.id %}">
+                                <i class="bi bi-trash"></i>
+                              </button>
+                            </td>
+                            {% endif %}
+                          </tr>
+                          {% endfor %}
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <th>Grade And Section</th>
+                            <th>Action</th>
+                        </tr>
+                        </tfoot>
+                    </table>
+                    </div>
+                </div>
+            </Div>
+        </div>
+    </div>
+  </section><!-- End Hero Section -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="addGrade" tabindex="-1" data-bs-backdrop="static" aria-labelledby="addGrade" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <form method="POST" action="" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+              <!-- Header -->
+              <div class="row">
+                <div class="col-12 d-flex justify-content-center">
+                    <img class="img-fluid mb-3 mb-lg-0" src="{% static 'Home/assets/Logo.png'%}" style="border-radius: 50%;" width="50px" height="50px">
+                    <h6 class="text-black lead fs-6 mt-auto mb-auto ms-2">BVMCES: Library System</h6>
+                </div>
+              </div>
+  
+              <!-- Add Topic -->
+              <div class="row mt-3">
+                <div class="col-12">
+                  <div class="form-floating mb-3">
+                    {{ form.Grades }}
+                    <label for="topic">Enter new grade and section</label>
+                  </div>
+                </div>
+              </div>
+              <!--  -->
+  
+              <div class="row mt-3">
+                <div class="modal-footer">
+                  <div class="col-12 d-flex justify-content-end">
+                    <button type="button" class="btn btn-outline-danger me-2" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-outline-primary">Add</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Update Modal -->
+<div class="modal fade" data-bs-backdrop="static" tabindex="-1" role="dialog" id="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+    </div>
+  </div>
+</div>
+
+<!-- Update Function -->
+<script type="text/javascript">
+  function updateSectionForm() {
+    $(".update_section").each(function () {
+      $(this).modalForm({
+        formURL: $(this).data("form-url"),
+        asyncUpdate: false,
+        asyncSettings: {
+          closeOnSubmit: true,
+          successMessage: '',
+          dataUrl: "update/",
+          dataElementId: "#table_id",
+          dataKey: "table",
+          addModalFormFunction: updateSectionForm
+        }
+      });
+    });
+  }
+  updateSectionForm();
+</script>
+  
+<!-- Delete Function -->
+<script>
+    $(".delete_location").each(function () {
+    $(this).modalForm({formURL: $(this).data("form-url"), isDeleteForm: true});
+    });
+</script>
+
+<script>
+$('#table_id').DataTable({
+    responsive: true,
+    dom: 'Pfrtip',
+
+    // searchPanes: {
+    //         viewTotal: true
+    // },
+        
+    columnDefs: [
+            {
+                searchPanes: {
+                    show: false
+                },
+                targets: [1]
+            },
+    ]
+    
+});
+</script>
+
+{% endblock %}

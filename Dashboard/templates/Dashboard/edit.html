@@ -1,0 +1,114 @@
+{% extends 'Dashboard/layout.html' %}
+{% block body %}
+{% load static %}
+
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="hero d-flex align-items-center min-vh-100">
+    <div class="container">
+
+    </div>
+  </section><!-- End Hero Section -->
+
+
+  <div class="modal fade" id="editStudent" tabindex="-1" data-bs-backdrop="static" aria-labelledby="editStudent" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit Student Info</h5>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col">
+              <form method="POST">
+                {% csrf_token %}
+                <div class="row mt-3">
+                  <div class="col-12">
+                    <div class="form-floating mb-3">
+                      {{ form.Student_Name }}
+                      <label for="topic">Student Full Name</label>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-floating mb-3">
+                      {{ form.Grade_and_Section }}
+                      <label for="subject">Grade And Section</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 mt-3">
+                  <a href="{% url 'System' %}" class="me-2">
+                    <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">Back</button>
+                  </a>
+                  <input type="submit" class="btn btn-outline-primary" value="Save Changes">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var myModal = new bootstrap.Modal(document.getElementById('editStudent'), {})
+    myModal.toggle()
+
+    (function() {
+    'use strict';
+    function remoteModal(idModal){
+    var vm = this;
+    vm.modal = $(idModal);
+
+    if( vm.modal.length == 0 ) {
+    return false;
+    }
+
+    if( window.location.hash == idModal ){
+    openModal();
+    }
+
+    var services = {
+    open: openModal,
+    close: closeModal
+    };
+
+    return services;
+    ///////////////
+
+    // method to open modal
+    function openModal(){
+    vm.modal.modal('show');
+    }
+
+    // method to close modal
+    function closeModal(){
+    vm.modal.modal('hide');
+    }
+    }
+    Window.prototype.remoteModal = remoteModal;
+    })();
+
+    $(function(){
+    window.remoteModal('#myModalLabel');
+    });
+    
+ </script>
+
+  {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

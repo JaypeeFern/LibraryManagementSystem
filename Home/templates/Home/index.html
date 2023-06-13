@@ -1,0 +1,66 @@
+{% extends 'Home/layout.html' %}
+{% block body %}
+{% load static %}
+
+<div class="container mt-5">
+    <div class="main row">
+        <div class="sm-screen-img col-12 col-sm-12 col-md-12 d-lg-none">
+            <div class="right col-12 d-flex justify-content-center">
+             <img class="img-css animate__animated animate__fadeInRight animate__slow" src="{% static 'Home/assets/Logo.png'%}" >
+            </div>
+        </div>
+
+        <div class="main-left col-12 col-md-12 col-lg-6 d-flex mt-auto mb-auto">
+            <!-- Body -->
+            <div class="left col-12">
+                <h1 class="text-header-1 display-1 fw-bold text-primary d-flex justify-content-center animate__animated animate__fadeInUp animate__delay-1s">WELCOME!</h1>
+                <div class="cont d-flex justify-content-center">
+                    <a class="text-decoration-none" href="{% url 'Choices' %}">
+                        <button type="button" class="btn btn-outline-primary btn-lg d-flex justify-content-center animate__animated animate__fadeInUp animate__delay-2s">Get Started</button>
+                    </a>
+                </div>
+            </div>
+            <!-- End Body-->
+        </div>
+
+        <div class="main-right col-12 col-sm-12 col-md-12 col-lg-6">
+            <!-- Body -->
+            <div class="right col-12 d-flex d-none d-sm-none d-md-none d-lg-flex  justify-content-center">
+                <img class="img-css animate__animated animate__fadeInRight animate__slow" src="{% static 'Home/assets/Logo.png'%}" >
+            </div>
+            <!-- End Body -->
+        </div>
+
+    </div>
+</div>
+
+<script>
+    // // Body Anime
+    // anime.timeline({
+    //     loop: false
+    // }).add({
+    //     targets: '.text-header-1',
+    //     translateY: [-100, 0],
+    //     easing: "easeInExpo",
+    //     duration: 1000,
+    //     delay: 100,
+    //     opacity: [0, 1]
+    // }).add({
+    //     targets: 'button',
+    //     translateY: [-100, 0],
+    //     easing: "easeInExpo",
+    //     duration: 1000,
+    //     delay: 50,
+    //     opacity: [0, 1]
+    // }).add({
+    //   targets: 'img[src*="png"]',
+    //   translateX: [40, 0],
+    //   translateZ: 0,
+    //   opacity: [0, 1],
+    //   easing: "easeOutExpo",
+    //   duration: 3000,
+    //   delay: (el, i) => 500 + 30 * i
+    // });
+</script>
+
+{% endblock %}

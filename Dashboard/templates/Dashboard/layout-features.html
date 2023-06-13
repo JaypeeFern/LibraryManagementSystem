@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>BVMCES: Library System</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'Home/assets/Logo.svg' %}">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'Dashboard/vendor/fontawesome-free/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Dashboard/vendor/glightbox/css/glightbox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Dashboard/vendor/aos/aos.css' %}">
+    <link rel="stylesheet" href="{% static 'Dashboard/vendor/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/b-2.2.3/date-1.1.2/fc-4.1.0/fh-3.2.4/kt-2.7.0/r-2.3.0/rg-1.2.0/sb-1.3.4/sp-2.0.2/sl-1.4.0/datatables.min.css"/>
+    <link rel="stylesheet" href="{% static 'Dashboard/vendor/bootstrap-icons/bootstrap-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'Home/libraries/animate/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Dashboard/css/main.css' %}">
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css" />
+
+    <!-- Scripts -->
+
+    <script src="{% static 'Dashboard/vendor/aos/aos.js' %}"></script>
+    <script src="{% static 'Dashboard/vendor/glightbox/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'Dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/b-2.2.3/date-1.1.2/fc-4.1.0/fh-3.2.4/kt-2.7.0/r-2.3.0/rg-1.2.0/sb-1.3.4/sp-2.0.2/sl-1.4.0/datatables.min.js"></script>
+    <script src="{% static 'Dashboard/js/main.js' %}"></script>
+    <script src="{% static 'Home/libraries/sweetalert2/sweetalert2.js' %}"></script>
+    <script src="https://cdn.plyr.io/3.7.2/plyr.polyfilled.js"></script>
+    <script src="{% static 'js/jquery.bootstrap.modal.forms.min.js' %}"></script>
+    
+
+
+</head>
+<body>   
+{% include 'Dashboard/navbar-features.html' %}
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="row">
+            <div class="col-12 text-center mb-3 fw-bold fs-5 text-uppercase">Log out</div>
+            <hr>
+            <div class="col-12 text-center lead fs-4 mb-3">Are you sure you want to log out?</div>
+            <hr>
+            <div class="col-12 d-flex justify-content-center">
+                <a class="d-grid gap-2 me-2" href="{% url 'Logout' %}">
+                    <button type="button" class="btn btn-primary">Ok</button>
+                </a>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% block body %}
+{% endblock %}
+{% load sweetify %}
+{% sweetify %}
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

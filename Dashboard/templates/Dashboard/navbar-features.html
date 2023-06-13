@@ -1,0 +1,45 @@
+    {% load static %}
+    
+    <!-- ======= Header ======= -->
+    <header id="header" class="header d-flex align-items-center fixed-top">
+        <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+          <a href="{% url 'dashboard' %}" class="logo d-flex align-items-center">
+            <!-- Uncomment the line below if you also wish to use an image logo -->
+            <img class="img-fluid mb-3 mb-lg-0" src="{% static 'Home/assets/Logo.png'%}" style="border-radius: 50%;">
+            <h1>BVMCES</h1>
+          </a>
+    
+          <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+          <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+          <nav id="navbar" class="navbar">
+            <ul>
+              <li><a href="{% url 'dashboard' %}" class="active">Home</a></li>
+              <li class="dropdown"><a href="#"><span>Features</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                <ul>
+                  <li><a href="{% url 'Topics' %}">Topics</a></li>
+                  <li><a href="{% url 'Stories' %}">Stories</a></li>
+                  <li class="dropdown"><a href="#"><span>Dictionary</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                    <ul>
+                      <li><a href="{% url 'English-Dictionary' %}">English</a></li>
+                      <li><a href="{% url 'Tagalog-Dictionary' %}">Tagalog</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              {% if user.is_staff %}
+              <li class="dropdown"><a href="#"><span>Admin</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                <ul>
+                  <li><a href="{% url 'System' %}">System Users</a></li>
+                  <li><a href="{% url 'Sections' %}">Grade and Sections</a></li>
+                </ul>
+              </li>
+              <li><a class="get-a-quote" data-bs-toggle="modal" data-bs-target="#exampleModal">Logout</a></li>
+              {% else %}
+              <li><a class="get-a-quote" data-bs-toggle="modal" data-bs-target="#exampleModal">Logout</a></li>
+              {% endif %}
+            </ul>
+          </nav><!-- .navbar -->
+        </div>
+
+      </header><!-- End Header -->
+      <!-- End Header -->
