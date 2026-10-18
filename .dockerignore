@@ -1,0 +1,12 @@
+.git
+.venv
+venv
+.compose-data
+__pycache__
+*.py[cod]
+*.sqlite3
+media
+staticfiles
+.env
+.env.*
+!.env.example

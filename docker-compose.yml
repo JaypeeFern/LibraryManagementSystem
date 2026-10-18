@@ -1,0 +1,33 @@
+# Production Compose definition for Coolify. CI builds and publishes the
+# immutable GHCR image; this file only pulls the exact source commit.
+services:
+  web:
+    image: ghcr.io/jaypeefern/library-management-system:${SOURCE_COMMIT:?SOURCE_COMMIT must be set to the full Git commit SHA}
+    restart: unless-stopped
+    environment:
+      SECRET_KEY: ${SECRET_KEY:?Set SECRET_KEY in the deployment environment}
+      DJANGO_DEBUG: "false"
+      ALLOWED_HOSTS: ${ALLOWED_HOSTS:?Set ALLOWED_HOSTS to the deployed hostnames}
+      CSRF_TRUSTED_ORIGINS: ${CSRF_TRUSTED_ORIGINS:?Set CSRF_TRUSTED_ORIGINS including the public HTTPS origin}
+      DATABASE_PATH: /data/db.sqlite3
+      MEDIA_ROOT: /data/media
+      EMAIL_HOST: ${EMAIL_HOST:-smtp.gmail.com}
+      EMAIL_PORT: ${EMAIL_PORT:-587}
+      EMAIL_HOST_USER: ${EMAIL_HOST_USER:-}
+      EMAIL_HOST_PASSWORD: ${EMAIL_HOST_PASSWORD:-}
+    ports:
+      - "127.0.0.1:${APP_PORT:-8000}:8000"
+    volumes:
+      - ${APP_DATA_PATH:-/data/coolify/persistent/librarymanagementsystem}:/data
+    expose:
+      - "8000"
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "from urllib.request import urlopen; urlopen('http://127.0.0.1:8000/', timeout=3)"
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 30s

@@ -1,2 +1,7 @@
 media/
 staticfiles/
+.env
+.compose-data/
+.venv/
+__pycache__/
+*.py[cod]

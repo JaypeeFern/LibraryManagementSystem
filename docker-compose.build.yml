@@ -1,0 +1,9 @@
+# Local-only override for building the production image from the checkout.
+# Production Coolify deploys use docker-compose.yml without this file.
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "127.0.0.1:${APP_PORT:-8000}:8000"

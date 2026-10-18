@@ -50,7 +50,7 @@
                           </div>
                           {% if user.is_staff %}
                           <div class="col-3 d-flex justify-content-end">
-                            <button onclick="document.location='{% url '/DeleteStories/' data.id %}'" type="button" class="btn btn-outline-danger block"><i class="bi bi-trash"></i></button>        
+                            <button onclick="document.location='{% url 'DeleteStories' data.id %}'" type="button" class="btn btn-outline-danger block"><i class="bi bi-trash"></i></button>
                           </div>
                           {% endif %}
                         </div>

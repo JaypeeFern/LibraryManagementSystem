@@ -12,9 +12,6 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
-import django_heroku
-import dj_database_url
-import dropbox
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,13 +20,22 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY", "")
+# Production supplies a real secret; this fallback is for local development.
+SECRET_KEY = os.environ.get(
+    'SECRET_KEY',
+    'django-insecure-local-development-key-do-not-use-in-production',
+)
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DJANGO_DEBUG', 'true').lower() == 'true'
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = [
+    host.strip()
+    for host in os.environ.get(
+        'ALLOWED_HOSTS',
+        'localhost,127.0.0.1,bvmces-elibrary.online,www.bvmces-elibrary.online',
+    ).split(',')
+    if host.strip()
+]
 
 
 # Application definition
@@ -54,6 +60,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
@@ -86,12 +93,12 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+# https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.environ.get('DATABASE_PATH', str(BASE_DIR / 'db.sqlite3')),
     }
 }
 
@@ -131,22 +138,21 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 MEDIA_URL = 'media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.environ.get('MEDIA_ROOT', os.path.join(BASE_DIR, 'media'))
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'Home/static'),
-    os.path.join(BASE_DIR, "Dictionary/static"),
-    os.path.join(BASE_DIR, "Stories/static"),
-    os.path.join(BASE_DIR, "Topics/static"),
-    os.path.join(BASE_DIR, 'Dashboard/static')
-]
-
-# django_heroku.settings(locals())
+STORAGES = {
+    'default': {
+        'BACKEND': 'django.core.files.storage.FileSystemStorage',
+    },
+    'staticfiles': {
+        'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
+    },
+}
 
 # Default primary key field type
-# https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
+# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 # CORS_ALLOWED_ORIGINS = [
 #     "http://cd7e-49-149-212-162.ngrok.io",
@@ -158,23 +164,21 @@ STATICFILES_DIRS = [
 #     "https://cd7e-49-149-212-162.ngrok.io"
 # ]
 
-CORS_ORIGIN_WHITELIST = [
-    'http://localhost:3000',
-]
+def get_csv_environment(name, default):
+    return [value.strip() for value in os.environ.get(name, default).split(',') if value.strip()]
 
-CORS_ALLOWED_ORIGINS = [
-    'https://www.bvmces-elibrary.online',
-    'https://bvmces-elibrary.online',
-    'http://www.bvmces-elibrary.online',
-    'http://bvmces-elibrary.online'
-]
 
-CSRF_TRUSTED_ORIGINS = [
-    'https://www.bvmces-elibrary.online',
-    'https://bvmces-elibrary.online',
-    'http://www.bvmces-elibrary.online',
-    'http://bvmces-elibrary.online'
-]
+CORS_ALLOWED_ORIGINS = get_csv_environment(
+    'CORS_ALLOWED_ORIGINS',
+    'https://www.bvmces-elibrary.online,https://bvmces-elibrary.online,http://www.bvmces-elibrary.online,http://bvmces-elibrary.online,http://localhost:3000',
+)
+
+CSRF_TRUSTED_ORIGINS = get_csv_environment(
+    'CSRF_TRUSTED_ORIGINS',
+    'https://www.bvmces-elibrary.online,https://bvmces-elibrary.online,http://www.bvmces-elibrary.online,http://bvmces-elibrary.online',
+)
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -184,15 +188,15 @@ ADMINS = [('Paul', ''),]
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = os.environ.get('EMAIL_HOST', 'smtp.gmail.com')
 
-EMAIL_PORT = '587'
+EMAIL_PORT = int(os.environ.get('EMAIL_PORT', '587'))
 
 EMAIL_USE_TLS = True
 
-EMAIL_HOST_USER = 'j'
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', '')
 
-EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
 
 
 # Media Dropbox

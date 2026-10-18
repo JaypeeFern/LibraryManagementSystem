@@ -1,0 +1,169 @@
+name: Build and deploy image
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'backend/**'
+      - 'Home/**'
+      - 'Dashboard/**'
+      - 'Dictionary/**'
+      - 'Stories/**'
+      - 'Topics/**'
+      - 'docker/**'
+      - '.dockerignore'
+      - '.gitattributes'
+      - '.github/workflows/build-image.yml'
+      - 'Dockerfile'
+      - 'docker-compose.yml'
+      - 'docker-compose.build.yml'
+      - 'requirements.in'
+      - 'requirements.txt'
+      - '**/*.html'
+      - '**/*.css'
+      - '**/*.js'
+  workflow_dispatch:
+
+concurrency:
+  group: build-image-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  packages: write
+
+env:
+  IMAGE_TAG: ${{ github.sha }}
+  IMAGE: ghcr.io/jaypeefern/library-management-system
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: docker/setup-buildx-action@v3
+
+      - name: Verify image identity
+        run: |
+          if [[ ! "$IMAGE_TAG" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "Expected a full lowercase 40-character commit SHA." >&2
+            exit 1
+          fi
+
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.IMAGE }}
+          tags: |
+            type=raw,value=${{ github.sha }}
+            type=raw,value=latest,enable={{is_default_branch}}
+
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          provenance: false
+
+  verify-image:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: docker/setup-buildx-action@v3
+
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Verify immutable image was pushed
+        env:
+          IMAGE_REFERENCE: ghcr.io/jaypeefern/library-management-system:${{ github.sha }}
+        run: docker buildx imagetools inspect "$IMAGE_REFERENCE"
+
+  deploy:
+    needs: verify-image
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Pin and trigger Coolify deploy
+        env:
+          URL: ${{ secrets.COOLIFY_WEBHOOK_URL }}
+          TOKEN: ${{ secrets.COOLIFY_TOKEN }}
+          API_TOKEN: ${{ secrets.COOLIFY_API_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          if [ -z "$URL" ] && [ -z "$TOKEN" ] && [ -z "$API_TOKEN" ]; then
+            echo "Coolify deployment secrets are not set; image build is ready for manual deployment." >&2
+            exit 0
+          fi
+
+          if [ -z "$URL" ] || [ -z "$TOKEN" ] || [ -z "$API_TOKEN" ]; then
+            echo "Set all of COOLIFY_WEBHOOK_URL, COOLIFY_TOKEN, and COOLIFY_API_TOKEN." >&2
+            exit 1
+          fi
+
+          PARSED_WEBHOOK=$(python3 - "$URL" <<'PY'
+          from urllib.parse import parse_qs, urlparse
+          import re
+          import sys
+
+          webhook = sys.argv[1]
+          parsed = urlparse(webhook)
+          try:
+              hostname = parsed.hostname
+              parsed.port
+          except ValueError:
+              raise SystemExit("Invalid COOLIFY_WEBHOOK_URL host or port")
+          query = parse_qs(parsed.query, keep_blank_values=True)
+          values = query.get("uuid", [])
+          if parsed.scheme != "https" or not hostname or parsed.username or parsed.password:
+              raise SystemExit("COOLIFY_WEBHOOK_URL must use HTTPS and contain no embedded credentials")
+          if parsed.fragment or parsed.path.rstrip("/") != "/api/v1/deploy" or len(values) != 1:
+              raise SystemExit("COOLIFY_WEBHOOK_URL must be an HTTPS resource deploy webhook with one uuid")
+          if "tag" in query or not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_-]*", values[0]):
+              raise SystemExit("COOLIFY_WEBHOOK_URL has an unsupported tag or application UUID")
+          print(f"{parsed.scheme}://{parsed.netloc}")
+          print(values[0])
+          PY
+          )
+          mapfile -t VALUES <<< "$PARSED_WEBHOOK"
+          if [ "${#VALUES[@]}" -ne 2 ]; then
+            echo "Could not derive Coolify origin and application UUID." >&2
+            exit 1
+          fi
+
+          COOLIFY_ORIGIN="${VALUES[0]}"
+          APPLICATION_UUID="${VALUES[1]}"
+          API_ROOT="${COOLIFY_ORIGIN}/api/v1"
+
+          curl --fail-with-body --silent --show-error --output /dev/null --request PATCH \
+            "$API_ROOT/applications/$APPLICATION_UUID" \
+            -H "Authorization: Bearer $API_TOKEN" \
+            -H "Content-Type: application/json" \
+            --data "$(jq -n --arg sha "$IMAGE_TAG" '{git_commit_sha: $sha}')"
+
+          COOLIFY_STATE=$(curl --fail-with-body --silent --show-error \
+            -H "Authorization: Bearer $API_TOKEN" \
+            "$API_ROOT/applications/$APPLICATION_UUID")
+          if ! jq -e --arg sha "$IMAGE_TAG" '.git_commit_sha == $sha' \
+            <<< "$COOLIFY_STATE" >/dev/null; then
+            echo "Coolify did not retain the expected source commit; refusing deployment." >&2
+            exit 1
+          fi
+
+          curl --fail-with-body --silent --show-error --output /dev/null --request POST \
+            -H "Authorization: Bearer $TOKEN" "$URL"
+          echo "Coolify deploy webhook triggered for $IMAGE_TAG."
