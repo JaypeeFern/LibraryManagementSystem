@@ -1,3 +1,6 @@
+from functools import lru_cache
+from pathlib import Path
+
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseBadRequest
@@ -27,6 +30,18 @@ class BoundedDictionary(Dictionary):
         self.response = response.content
         self.soup = BeautifulSoup(self.response, 'lxml')
         return self.soup
+
+
+@lru_cache(maxsize=1)
+def get_tagalog_dictionary():
+    dictionary_path = Path(__file__).resolve().parent / 'static' / 'Dictionary' / 'json' / 'tagalog_dictionary.json'
+    with dictionary_path.open(encoding='utf-8') as dictionary_file:
+        entries = json.load(dictionary_file)
+
+    word_index = {}
+    for entry in entries:
+        word_index.setdefault(entry['word'], entry['definition'])
+    return word_index
 
 
 @login_required(login_url='Choices')
@@ -59,28 +74,16 @@ def searchView(request):
     
     return render(request, 'Dictionary/index.html', context)
 
+@require_GET
 def tagalogSearchView(request):
-    
-    url = (
-    "Dictionary/static/Dictionary/json"
-    )
-    
-    data = f"{url}/tagalog_dictionary.json"
-    opt = open(data)
-    data1 = json.load(opt)
-    
-    for i in data1:
-        word = request.GET.get('tagalog-search')
-        if i['word'] == f'{word}':
-            tword = i['word']
-            definition = i['definition']
-            
-            context = {
-            'tword': tword,
-            'definition': definition
-            }
+    word = request.GET.get('tagalog-search', '')
+    definition = get_tagalog_dictionary().get(word)
+    if definition is not None:
+        context = {
+            'tword': word,
+            'definition': definition,
+        }
+        return render(request, 'Dictionary/tagalog.html', context)
 
-            return render(request, 'Dictionary/tagalog.html', context)
-        
     error = sweetify.toast(request, 'Word not found.', icon="error", timer=3000)
     return render(request, 'Dictionary/tagalog.html', {'error':error})

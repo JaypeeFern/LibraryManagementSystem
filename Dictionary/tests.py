@@ -43,3 +43,39 @@ class DictionarySearchSecurityTests(TestCase):
             'https://www.dictionary.com/browse/library',
             timeout=(3, 5),
         )
+
+
+@override_settings(SECURE_SSL_REDIRECT=False)
+class TagalogDictionarySearchSecurityTests(TestCase):
+    def setUp(self):
+        from Dictionary.views import get_tagalog_dictionary
+
+        get_tagalog_dictionary.cache_clear()
+
+    def tearDown(self):
+        from Dictionary.views import get_tagalog_dictionary
+
+        get_tagalog_dictionary.cache_clear()
+
+    def test_anonymous_search_uses_cached_indexed_dictionary(self):
+        from Dictionary.views import get_tagalog_dictionary
+
+        entries = [
+            {'word': 'bahay', 'definition': 'first definition'},
+            {'word': 'bahay', 'definition': 'duplicate definition'},
+        ]
+        with patch('Dictionary.views.json.load', return_value=entries) as load_dictionary:
+            first_response = self.client.get(reverse('Tagalog'), {'tagalog-search': 'bahay'})
+            second_response = self.client.get(reverse('Tagalog'), {'tagalog-search': 'bahay'})
+
+        self.assertContains(first_response, 'first definition')
+        self.assertContains(second_response, 'first definition')
+        load_dictionary.assert_called_once()
+        self.assertEqual(get_tagalog_dictionary(), {'bahay': 'first definition'})
+
+    def test_non_get_search_does_not_load_dictionary(self):
+        with patch('Dictionary.views.json.load') as load_dictionary:
+            response = self.client.post(reverse('Tagalog'), {'tagalog-search': 'bahay'})
+
+        self.assertEqual(response.status_code, 405)
+        load_dictionary.assert_not_called()
