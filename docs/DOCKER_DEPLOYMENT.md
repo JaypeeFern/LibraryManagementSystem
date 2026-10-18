@@ -1,10 +1,11 @@
 # Docker deployment
 
 The production workflow builds the Django image in GitHub Actions, publishes it
-to GHCR under the full commit SHA, confirms the image exists, then pins and
-triggers the Coolify deployment. Production Compose only pulls that immutable
-tag; `latest` is published for registry convenience and is never used for
-deployment.
+to GHCR under the full commit SHA, records its content digest, verifies that
+digest, then updates Coolify's `IMAGE_REFERENCE` and triggers deployment.
+Production Compose pulls by digest, so registry tag changes cannot change the
+deployed image. `latest` is published for registry convenience and is never
+used for deployment.
 
 ## Coolify setup
 
@@ -35,7 +36,8 @@ deployment.
 The webhook must be an HTTPS resource deploy URL in the form
 `https://<coolify-host>/api/v1/deploy?uuid=<application-uuid>&force=false`.
 The API token must be allowed to read and update the application's source
-commit.
+commit and `IMAGE_REFERENCE` environment variable. The workflow creates that
+variable if missing, verifies the saved digest, and only then triggers deploy.
 
 ## Local Docker use
 
@@ -44,7 +46,7 @@ the current full Git SHA and local data directory before composing:
 
 ```powershell
 Copy-Item .env.example .env
-$env:SOURCE_COMMIT = (git rev-parse --verify HEAD).Trim()
+$env:IMAGE_REFERENCE = "library-management-system:local"
 $env:APP_DATA_PATH = "./.compose-data"
 docker compose -f docker-compose.yml -f docker-compose.build.yml up --build
 ```
@@ -56,15 +58,17 @@ For a POSIX shell:
 
 ```sh
 cp .env.example .env
-export SOURCE_COMMIT="$(git rev-parse --verify HEAD)"
+export IMAGE_REFERENCE="library-management-system:local"
 export APP_DATA_PATH="./.compose-data"
 docker compose -f docker-compose.yml -f docker-compose.build.yml up --build
 ```
 
 The Compose override adds a build context only for local use. Production
-Coolify uses `docker-compose.yml` alone and must have `SOURCE_COMMIT` available
-for Compose interpolation. Do not define a separate container runtime
-environment variable named `SOURCE_COMMIT`.
+Coolify uses `docker-compose.yml` alone. CI writes a digest reference such as
+`ghcr.io/jaypeefern/library-management-system@sha256:<64-hex-digest>` to its
+`IMAGE_REFERENCE` environment variable before deployment. For a manual deploy,
+set that variable to a previously verified digest reference. Do not deploy by
+tag.
 
 SQLite databases are runtime data and must not be committed to Git. They are
 excluded from Docker images. Before moving an existing deployment to Docker,
@@ -77,7 +81,7 @@ creates the schema through the container's migration step.
 `.github/workflows/build-image.yml` builds on changes to app code, templates,
 static assets, requirements, or Docker configuration on `main`. It publishes
 `ghcr.io/jaypeefern/library-management-system:<full-git-sha>` and a convenience
-`latest` tag, verifies the immutable tag, and only then starts the optional
-Coolify deployment step. Coolify's built-in source revision supplies the
-`SOURCE_COMMIT` Compose value; that value selects the image and is not passed to
-the Django process.
+`latest` tag, emits build provenance, verifies the exact image digest, and only
+then starts the optional Coolify deployment step. The same digest is saved as
+`IMAGE_REFERENCE` in Coolify and used by Compose. Pull requests run the image
+build without publishing or deploying it.

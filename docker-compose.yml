@@ -1,8 +1,8 @@
-# Production Compose definition for Coolify. CI builds and publishes the
-# immutable GHCR image; this file only pulls the exact source commit.
+# Production Compose definition for Coolify. CI records the verified GHCR
+# content digest in IMAGE_REFERENCE; this file only pulls that exact image.
 services:
   web:
-    image: ghcr.io/jaypeefern/library-management-system:${SOURCE_COMMIT:?SOURCE_COMMIT must be set to the full Git commit SHA}
+    image: ${IMAGE_REFERENCE:?IMAGE_REFERENCE must be the verified GHCR digest reference}
     restart: unless-stopped
     environment:
       SECRET_KEY: ${SECRET_KEY:?Set SECRET_KEY in the deployment environment}

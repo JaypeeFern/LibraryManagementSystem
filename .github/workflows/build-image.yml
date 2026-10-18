@@ -1,6 +1,8 @@
 name: Build and deploy image
 
 on:
+  pull_request:
+    branches: [main]
   push:
     branches: [main]
     paths:
@@ -39,7 +41,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      packages: write
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
@@ -51,6 +52,27 @@ jobs:
             echo "Expected a full lowercase 40-character commit SHA." >&2
             exit 1
           fi
+
+      - uses: docker/build-push-action@10e90e3645eae34f1e60eeb005ba3a3d33f178e8 # v6.19.2
+        with:
+          context: .
+          push: false
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  publish:
+    needs: build
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    outputs:
+      image-digest: ${{ steps.publish-image.outputs.digest }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - uses: docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f # v3.12.0
 
       - uses: docker/login-action@5e57cd118135c172c3672efd75eb46360885c0ef # v3.6.0
         with:
@@ -66,7 +88,8 @@ jobs:
             type=raw,value=${{ github.sha }}
             type=raw,value=latest,enable={{is_default_branch}}
 
-      - uses: docker/build-push-action@10e90e3645eae34f1e60eeb005ba3a3d33f178e8 # v6.19.2
+      - id: publish-image
+        uses: docker/build-push-action@10e90e3645eae34f1e60eeb005ba3a3d33f178e8 # v6.19.2
         with:
           context: .
           push: true
@@ -74,10 +97,11 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          provenance: false
+          provenance: mode=max
 
   verify-image:
-    needs: build
+    needs: publish
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     permissions:
       packages: read
@@ -92,11 +116,11 @@ jobs:
 
       - name: Verify immutable image was pushed
         env:
-          IMAGE_REFERENCE: ghcr.io/jaypeefern/library-management-system:${{ github.sha }}
+          IMAGE_REFERENCE: ghcr.io/jaypeefern/library-management-system@${{ needs.publish.outputs.image-digest }}
         run: docker buildx imagetools inspect "$IMAGE_REFERENCE"
 
   deploy:
-    needs: verify-image
+    needs: [build, verify-image, publish]
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     permissions: {}
@@ -106,6 +130,7 @@ jobs:
           URL: ${{ secrets.COOLIFY_WEBHOOK_URL }}
           TOKEN: ${{ secrets.COOLIFY_TOKEN }}
           API_TOKEN: ${{ secrets.COOLIFY_API_TOKEN }}
+          IMAGE_DIGEST: ${{ needs.publish.outputs.image-digest }}
         run: |
           set -euo pipefail
 
@@ -152,6 +177,11 @@ jobs:
           COOLIFY_ORIGIN="${VALUES[0]}"
           APPLICATION_UUID="${VALUES[1]}"
           API_ROOT="${COOLIFY_ORIGIN}/api/v1"
+          if [[ ! "$IMAGE_DIGEST" =~ ^sha256:[0-9a-f]{64}$ ]]; then
+            echo "Expected a SHA-256 image digest from the build." >&2
+            exit 1
+          fi
+          IMAGE_REFERENCE="ghcr.io/jaypeefern/library-management-system@${IMAGE_DIGEST}"
 
           curl --fail-with-body --silent --show-error --output /dev/null --request PATCH \
             "$API_ROOT/applications/$APPLICATION_UUID" \
@@ -168,6 +198,34 @@ jobs:
             exit 1
           fi
 
+          ENV_URL="$API_ROOT/applications/$APPLICATION_UUID/envs"
+          ENVIRONMENT_VARS=$(curl --fail-with-body --silent --show-error \
+            -H "Authorization: Bearer $API_TOKEN" "$ENV_URL")
+          ENV_UUID=$(jq -r '[.[] | select(.key == "IMAGE_REFERENCE" and .is_preview != true)][0].uuid // empty' \
+            <<< "$ENVIRONMENT_VARS")
+          if [ -n "$ENV_UUID" ]; then
+            curl --fail-with-body --silent --show-error --output /dev/null --request PATCH \
+              "$ENV_URL" \
+              -H "Authorization: Bearer $API_TOKEN" \
+              -H "Content-Type: application/json" \
+              --data "$(jq -n --arg value "$IMAGE_REFERENCE" '{key: "IMAGE_REFERENCE", value: $value, is_preview: false, is_literal: true}')"
+          else
+            curl --fail-with-body --silent --show-error --output /dev/null --request POST \
+              "$ENV_URL" \
+              -H "Authorization: Bearer $API_TOKEN" \
+              -H "Content-Type: application/json" \
+              --data "$(jq -n --arg value "$IMAGE_REFERENCE" '{key: "IMAGE_REFERENCE", value: $value, is_preview: false, is_literal: true}')"
+          fi
+
+          VERIFIED_ENVIRONMENT_VARS=$(curl --fail-with-body --silent --show-error \
+            -H "Authorization: Bearer $API_TOKEN" "$ENV_URL")
+          if ! jq -e --arg value "$IMAGE_REFERENCE" \
+            '[.[] | select(.key == "IMAGE_REFERENCE" and .is_preview != true and (.value == $value or .real_value == $value))] | length == 1' \
+            <<< "$VERIFIED_ENVIRONMENT_VARS" >/dev/null; then
+            echo "Coolify did not retain the expected image digest; refusing deployment." >&2
+            exit 1
+          fi
+
           curl --fail-with-body --silent --show-error --output /dev/null --request POST \
             -H "Authorization: Bearer $TOKEN" "$URL"
-          echo "Coolify deploy webhook triggered for $IMAGE_TAG."
+          echo "Coolify deploy webhook triggered for $IMAGE_REFERENCE."
