@@ -16,14 +16,14 @@
                   <h5 class="card-title text-center mb-4 lead fs-5 fw-bold">Student Log</h5>
                   <form method="POST" action="{% url 'Attendance' %}">
                     {% csrf_token %}
+                    {% if attendance_error %}
+                    <p class="alert alert-danger" role="alert">{{ attendance_error }}</p>
+                    {% endif %}
+                    {{ form.non_field_errors }}
                     {% if user.is_authenticated %}
                     <div class="form-floating mb-3">
                         {{form.Student_Name}}
                         <label for="floatingPlaintextInput">Enter Full Name</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="text" hidden name="user" class="user form-control-plaintext" placeholder="#" id="floatingPlaintextInput" required="" readonly>
-                        <label for="floatingPlaintextInput">User ID</label>
                     </div>
                     {% endif %}
                     <div class="form-floating">
@@ -44,8 +44,6 @@
 <script>
 const input = document.querySelector('input[name="Student_Name"]');
 input.setAttribute("value", "{{user.first_name}}");
-const input2 = document.querySelector('.user');
-input2.setAttribute("value", "{{user.id}}")
 </script>
 
 {% endblock %}

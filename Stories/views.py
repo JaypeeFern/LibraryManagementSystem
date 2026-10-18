@@ -1,4 +1,7 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponseForbidden
+from django.contrib.auth.decorators import user_passes_test
+from django.views.decorators.http import require_POST
 from .models import StoriesRecord
 from .forms import AddStoryForm
 import sweetify
@@ -9,6 +12,8 @@ def renderStories(request):
     
     form = AddStoryForm()
     if request.method == 'POST':
+        if not request.user.is_staff:
+            return HttpResponseForbidden()
         form = AddStoryForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
@@ -25,6 +30,8 @@ def renderStories(request):
     
     return render(request, 'Stories/index.html', context)
 
+@user_passes_test(lambda user: user.is_staff, login_url='Choices')
+@require_POST
 def deleteStories(request, pk):
     data = StoriesRecord.objects.get(id=pk)
     data.delete()

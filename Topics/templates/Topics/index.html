@@ -37,9 +37,10 @@
                                 <button type="button" class="btn btn-outline-primary block">Download</button>
                               </a>
                               {% if user.is_staff %}
-                              <a href="{% url 'DeleteTopics' data.id %}">
-                                <button type="button" class="btn btn-outline-danger block">Delete</button>
-                              </a>
+                              <form method="post" action="{% url 'DeleteTopics' data.id %}" class="d-inline">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-outline-danger block">Delete</button>
+                              </form>
                                 <button type="button" class="update_topic btn btn-outline-danger block" data-form-url="{% url 'UpdateTopic' data.id %}">Edit</button>
                               {% endif %}
                             </td>
@@ -160,4 +161,4 @@ $('#table_id').DataTable({
   });
 </script>
 
-{% endblock %}  
+{% endblock %}

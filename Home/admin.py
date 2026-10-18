@@ -11,6 +11,10 @@ class GradeAndSectionListAdmin(admin.ModelAdmin):
     list_display = ('id','Grades')
     ordering = ('id',)
     search_fields = ('id','Grades')
+
+    def has_delete_permission(self, request, obj=None):
+        return request.user.is_superuser
+
 admin.site.register(GradeAndSection,GradeAndSectionListAdmin)
 
 class StudentAttendanceAdmin(admin.ModelAdmin):

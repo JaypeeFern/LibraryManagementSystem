@@ -1,7 +1,12 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse, HttpResponseBadRequest
+from django.views.decorators.http import require_GET
+from bs4 import BeautifulSoup
 from pydictionary import Dictionary
-from wordhoard import Antonyms, Synonyms
-import json, sweetify
+from requests import get, RequestException
+import json
+import sweetify
 
 # Create your views here.
 
@@ -11,20 +16,35 @@ def renderEnglishDictionary(request):
 def renderTagalogDictionary(request):
     return render(request, 'Dictionary/tagalog.html')
 
+REQUEST_TIMEOUT_SECONDS = (3, 5)
+MAX_SEARCH_LENGTH = 64
+
+
+class BoundedDictionary(Dictionary):
+    def soup_result(self, url):
+        self.url = url
+        response = get(url, timeout=REQUEST_TIMEOUT_SECONDS)
+        self.response = response.content
+        self.soup = BeautifulSoup(self.response, 'lxml')
+        return self.soup
+
+
+@login_required(login_url='Choices')
+@require_GET
 def searchView(request):
 
     # capturing the word from the form via the name search
-    word = request.GET.get('search')
-    # creating a dictionary object
-    dictionary = Dictionary(word)
-    # passing a word to the dictionary object
-    meanings = dictionary.meanings()
-    # getting a synonym and antonym  
-    antonyms = Antonyms(search_string=word, output_format='list')
-    antonym_results = antonyms.find_antonyms()
-    
-    synonyms = Synonyms(search_string=word, output_format='list')
-    synonym_results = synonyms.find_synonyms()
+    word = request.GET.get('search', '').strip()
+    if not word or len(word) > MAX_SEARCH_LENGTH or any(not (char.isalpha() or char.isdigit() or char in " '-") for char in word):
+        return HttpResponseBadRequest('Enter a word or phrase of up to 64 letters.')
+
+    try:
+        dictionary = BoundedDictionary(word)
+        meanings = dictionary.meanings()
+        antonym_results = dictionary.antonyms()
+        synonym_results = dictionary.synonyms()
+    except RequestException:
+        return HttpResponse('The dictionary service is temporarily unavailable. Please try again.', status=503)
     
     antonymsQuery = antonym_results[:5]
     synonymsQuery = synonym_results[:5]
@@ -64,4 +84,3 @@ def tagalogSearchView(request):
         
     error = sweetify.toast(request, 'Word not found.', icon="error", timer=3000)
     return render(request, 'Dictionary/tagalog.html', {'error':error})
-        

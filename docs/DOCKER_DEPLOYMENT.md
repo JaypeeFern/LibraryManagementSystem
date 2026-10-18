@@ -49,6 +49,7 @@ $env:APP_DATA_PATH = "./.compose-data"
 docker compose -f docker-compose.yml -f docker-compose.build.yml up --build
 ```
 
+The local build override enables Django debug mode for local-only HTTP use.
 Open `http://127.0.0.1:8000` after the service reports healthy.
 
 For a POSIX shell:
@@ -65,11 +66,11 @@ Coolify uses `docker-compose.yml` alone and must have `SOURCE_COMMIT` available
 for Compose interpolation. Do not define a separate container runtime
 environment variable named `SOURCE_COMMIT`.
 
-The checked-in `db.sqlite3` is excluded from Docker images. Before moving an
-existing deployment to Docker, back up its database and uploaded media, then
-place them in `APP_DATA_PATH` as `db.sqlite3` and `media/` before starting the
-new image. A fresh deployment creates the schema through the container's
-migration step.
+SQLite databases are runtime data and must not be committed to Git. They are
+excluded from Docker images. Before moving an existing deployment to Docker,
+back up its database and uploaded media, then place them in `APP_DATA_PATH` as
+`db.sqlite3` and `media/` before starting the new image. A fresh deployment
+creates the schema through the container's migration step.
 
 ## Image pipeline
 

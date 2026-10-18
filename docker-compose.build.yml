@@ -2,6 +2,8 @@
 # Production Coolify deploys use docker-compose.yml without this file.
 services:
   web:
+    environment:
+      DJANGO_DEBUG: "true"
     build:
       context: .
       dockerfile: Dockerfile

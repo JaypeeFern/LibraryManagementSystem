@@ -44,17 +44,18 @@
                           <h5 class="mb-1 fs-6"><i class="bi bi-play-circle-fill"></i> {{ data.story_name }}</h5>
                         </div>
                         <p class="mb-1">{{ data.story_description }}</p>
-                        <div class="row">
-                          <div class="col-9">
-                            <small>{{ data.date_uploadeded }}</small>
-                          </div>
-                          {% if user.is_staff %}
-                          <div class="col-3 d-flex justify-content-end">
-                            <button onclick="document.location='{% url 'DeleteStories' data.id %}'" type="button" class="btn btn-outline-danger block"><i class="bi bi-trash"></i></button>
-                          </div>
-                          {% endif %}
-                        </div>
+                        <small>{{ data.date_uploadeded }}</small>
                       </a>
+                      {% if user.is_staff %}
+                        <div class="row mt-1">
+                          <div class="col-3 d-flex justify-content-end">
+                            <form method="post" action="{% url 'DeleteStories' data.id %}">
+                              {% csrf_token %}
+                              <button type="submit" class="btn btn-outline-danger block"><i class="bi bi-trash"></i></button>
+                            </form>
+                          </div>
+                        </div>
+                      {% endif %}
                       {% endif %}
                       {% endfor %}
                     </div>

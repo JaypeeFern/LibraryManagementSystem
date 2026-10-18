@@ -12,6 +12,9 @@
                 <!-- English -->
                 <div class="row">
                   <div class="col-12">
+                      {% if dictionary_error %}
+                      <p class="alert alert-warning" role="alert">{{ dictionary_error }}</p>
+                      {% endif %}
                       <form id="post-form" action="{% url 'Search' %}">
                         <div class="input-group">
                           <span class="input-group-text"><i class="bi bi-search"></i></span>

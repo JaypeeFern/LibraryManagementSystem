@@ -20,13 +20,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
-# Production supplies a real secret; this fallback is for local development.
-SECRET_KEY = os.environ.get(
-    'SECRET_KEY',
-    'django-insecure-local-development-key-do-not-use-in-production',
-)
+DEBUG = os.environ.get('DJANGO_DEBUG', 'false').lower() == 'true'
 
-DEBUG = os.environ.get('DJANGO_DEBUG', 'true').lower() == 'true'
+# Keep a convenient development fallback, but refuse to start a production
+# process with a known secret if the deployment variable is missing.
+SECRET_KEY = os.environ.get('SECRET_KEY')
+if not SECRET_KEY and not DEBUG:
+    from django.core.exceptions import ImproperlyConfigured
+
+    raise ImproperlyConfigured('SECRET_KEY must be set when DJANGO_DEBUG is false.')
+
+if not SECRET_KEY:
+    SECRET_KEY = os.environ.get("SECRET_KEY", "")
 
 ALLOWED_HOSTS = [
     host.strip()
@@ -47,6 +52,7 @@ INSTALLED_APPS = [
     'Stories',
     'Topics',
     'sweetify',
+    'axes',
     'bootstrap_modal_forms',
     'corsheaders',
     'django.contrib.admin',
@@ -68,8 +74,20 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'Stories.middleware.RangesMiddleware'
+    'Stories.middleware.RangesMiddleware',
+    'axes.middleware.AxesMiddleware',
 ]
+
+AUTHENTICATION_BACKENDS = [
+    'axes.backends.AxesStandaloneBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+AXES_FAILURE_LIMIT = 5
+AXES_COOLOFF_TIME = 1
+AXES_LOCKOUT_PARAMETERS = [['username', 'ip_address']]
+AXES_CLIENT_IP_CALLABLE = 'backend.settings.get_client_ip'
+AXES_RESET_ON_SUCCESS = True
 
 ROOT_URLCONF = 'backend.urls'
 
@@ -168,17 +186,30 @@ def get_csv_environment(name, default):
     return [value.strip() for value in os.environ.get(name, default).split(',') if value.strip()]
 
 
+def get_client_ip(request):
+    # Use the address Django actually sees; never trust an arbitrary forwarded header.
+    return request.META.get('REMOTE_ADDR')
+
+
 CORS_ALLOWED_ORIGINS = get_csv_environment(
     'CORS_ALLOWED_ORIGINS',
-    'https://www.bvmces-elibrary.online,https://bvmces-elibrary.online,http://www.bvmces-elibrary.online,http://bvmces-elibrary.online,http://localhost:3000',
+    'https://www.bvmces-elibrary.online,https://bvmces-elibrary.online,http://localhost:3000',
 )
 
 CSRF_TRUSTED_ORIGINS = get_csv_environment(
     'CSRF_TRUSTED_ORIGINS',
-    'https://www.bvmces-elibrary.online,https://bvmces-elibrary.online,http://www.bvmces-elibrary.online,http://bvmces-elibrary.online',
+    'https://www.bvmces-elibrary.online,https://bvmces-elibrary.online',
 )
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = not DEBUG
+SESSION_COOKIE_SECURE = not DEBUG
+CSRF_COOKIE_SECURE = not DEBUG
+SECURE_HSTS_SECONDS = 31_536_000 if not DEBUG else 0
+SECURE_HSTS_INCLUDE_SUBDOMAINS = False
+SECURE_HSTS_PRELOAD = False
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_REFERRER_POLICY = 'same-origin'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -202,7 +233,6 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
 # Media Dropbox
 
 
-X_FRAME_OPTIONS = "SAMEORIGIN"
-SILENCED_SYSTEM_CHECKS = ["security.W019"]
+X_FRAME_OPTIONS = 'DENY'
 
 AUTH_USER_MODEL = 'Home.CustomUser'

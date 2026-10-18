@@ -10,3 +10,4 @@ staticfiles
 .env
 .env.*
 !.env.example
+wordhoard_error.yaml

@@ -38,9 +38,11 @@
                               <button type="button" class="update_section btn btn-outline-primary block me-1" data-form-url="{% url 'UpdateSection' data.id %}">
                                 <i class="bi bi-pencil-square"></i>
                               </button>   
-                              <button type="button" class="delete_location btn btn-outline-danger block" data-form-url="{% url 'DeleteSection' data.id %}">
-                                <i class="bi bi-trash"></i>
-                              </button>
+                              {% if user.is_staff and user.is_superuser %}
+                                <button type="button" class="delete_location btn btn-outline-danger block" data-form-url="{% url 'DeleteSection' data.id %}">
+                                  <i class="bi bi-trash"></i>
+                                </button>
+                              {% endif %}
                             </td>
                             {% endif %}
                           </tr>

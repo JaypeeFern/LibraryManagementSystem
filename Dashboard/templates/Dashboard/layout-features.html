@@ -14,21 +14,21 @@
     <link rel="stylesheet" href="{% static 'Dashboard/vendor/glightbox/css/glightbox.min.css' %}">
     <link rel="stylesheet" href="{% static 'Dashboard/vendor/aos/aos.css' %}">
     <link rel="stylesheet" href="{% static 'Dashboard/vendor/bootstrap/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/b-2.2.3/date-1.1.2/fc-4.1.0/fh-3.2.4/kt-2.7.0/r-2.3.0/rg-1.2.0/sb-1.3.4/sp-2.0.2/sl-1.4.0/datatables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/b-2.2.3/date-1.1.2/fc-4.1.0/fh-3.2.4/kt-2.7.0/r-2.3.0/rg-1.2.0/sb-1.3.4/sp-2.0.2/sl-1.4.0/datatables.min.css" integrity="sha384-D8VqI3okMnBBsTrqP+8uCXNlQnrajZuQUZDvatXlSXXRpuyzQIJGvvj/oOgWgQfY" crossorigin="anonymous"/>
     <link rel="stylesheet" href="{% static 'Dashboard/vendor/bootstrap-icons/bootstrap-icons.css' %}">
     <link rel="stylesheet" href="{% static 'Home/libraries/animate/animate.min.css' %}">
     <link rel="stylesheet" href="{% static 'Dashboard/css/main.css' %}">
-    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css" />
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css" integrity="sha384-s8/YEFdorDG1wmrh7fSLj71E0rxqWCTJtxiz/3bEJO0GEx2OxZNdWV6CjCho68E8" crossorigin="anonymous" />
 
     <!-- Scripts -->
 
     <script src="{% static 'Dashboard/vendor/aos/aos.js' %}"></script>
     <script src="{% static 'Dashboard/vendor/glightbox/js/glightbox.min.js' %}"></script>
     <script src="{% static 'Dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/b-2.2.3/date-1.1.2/fc-4.1.0/fh-3.2.4/kt-2.7.0/r-2.3.0/rg-1.2.0/sb-1.3.4/sp-2.0.2/sl-1.4.0/datatables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/b-2.2.3/date-1.1.2/fc-4.1.0/fh-3.2.4/kt-2.7.0/r-2.3.0/rg-1.2.0/sb-1.3.4/sp-2.0.2/sl-1.4.0/datatables.min.js" integrity="sha384-98jRbatjuY/QYCkkRYxPMT2jc2k+KnFKpOGvpB4cGmlXFsubWFP6wa5N1QPdxl96" crossorigin="anonymous"></script>
     <script src="{% static 'Dashboard/js/main.js' %}"></script>
     <script src="{% static 'Home/libraries/sweetalert2/sweetalert2.js' %}"></script>
-    <script src="https://cdn.plyr.io/3.7.2/plyr.polyfilled.js"></script>
+    <script src="https://cdn.plyr.io/3.7.2/plyr.polyfilled.js" integrity="sha384-VLTWZVmgoIaDf9HRZXhek3lRFFaDO4OVigBBTO9MkQCPh++8LGoNmigj1uVaWr37" crossorigin="anonymous"></script>
     <script src="{% static 'js/jquery.bootstrap.modal.forms.min.js' %}"></script>
     
 
@@ -48,9 +48,10 @@
             <div class="col-12 text-center lead fs-4 mb-3">Are you sure you want to log out?</div>
             <hr>
             <div class="col-12 d-flex justify-content-center">
-                <a class="d-grid gap-2 me-2" href="{% url 'Logout' %}">
-                    <button type="button" class="btn btn-primary">Ok</button>
-                </a>
+                <form method="post" action="{% url 'Logout' %}" class="me-2">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-primary">Ok</button>
+                </form>
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
             </div>
         </div>
