@@ -1,10 +1,15 @@
 from tempfile import TemporaryDirectory
+from io import BytesIO
+from zipfile import ZipFile
 
+from django.core.exceptions import ValidationError
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.test import Client, TestCase, override_settings
 from django.urls import reverse
 
 from Home.models import CustomUser, GradeAndSection
+from backend.uploads import MAX_TOPIC_FILE_BYTES, validate_topic_file
+from .forms import AddTopicForm
 from .models import TopicRecord
 
 
@@ -100,11 +105,68 @@ class TopicAuthorizationTests(TestCase):
             'topic': 'Authorized topic',
             'subject': 'English',
             'grade_level': self.grade.pk,
-            'topic_file': SimpleUploadedFile('notes.pdf', b'test'),
+            'topic_file': SimpleUploadedFile('notes.pdf', b'%PDF-1.7\n'),
         })
 
         self.assertEqual(response.status_code, 302)
         self.assertTrue(TopicRecord.objects.filter(topic='Authorized topic').exists())
+
+    def test_topic_upload_accepts_pdf_docx_and_pptx_signatures(self):
+        validate_topic_file(SimpleUploadedFile('notes.pdf', b'%PDF-1.7\n'))
+
+        for name, required_member in (
+            ('notes.docx', 'word/document.xml'),
+            ('slides.pptx', 'ppt/presentation.xml'),
+        ):
+            with self.subTest(name=name):
+                document = BytesIO()
+                with ZipFile(document, 'w') as package:
+                    package.writestr('[Content_Types].xml', '<Types/>')
+                    package.writestr(required_member, '<document/>')
+                validate_topic_file(SimpleUploadedFile(name, document.getvalue()))
+
+    def test_topic_upload_rejects_wrong_extension_content_and_oversized_files(self):
+        with self.assertRaises(ValidationError):
+            validate_topic_file(SimpleUploadedFile('notes.exe', b'%PDF-1.7'))
+        with self.assertRaises(ValidationError):
+            validate_topic_file(SimpleUploadedFile('notes.pdf', b'<html>not a PDF</html>'))
+
+        oversized_file = SimpleUploadedFile('notes.pdf', b'%PDF-1.7')
+        oversized_file.size = MAX_TOPIC_FILE_BYTES + 1
+        with self.assertRaises(ValidationError):
+            validate_topic_file(oversized_file)
+
+    def test_staff_sees_topic_upload_validation_errors_without_server_error(self):
+        self.client.force_login(self.staff)
+
+        response = self.client.post(reverse('Topics'), {
+            'topic': 'Invalid upload',
+            'subject': 'English',
+            'grade_level': self.grade.pk,
+            'topic_file': SimpleUploadedFile('notes.pdf', b'<html>not a PDF</html>'),
+        })
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'The file content is not a PDF')
+        self.assertFalse(TopicRecord.objects.filter(topic='Invalid upload').exists())
+
+    def test_topic_admin_rejects_invalid_file_content(self):
+        administrator = CustomUser.objects.create_superuser(
+            username='administrator',
+            password='test-password-123',
+        )
+        self.client.force_login(administrator)
+
+        response = self.client.post(reverse('admin:Topics_topicrecord_add'), {
+            'topic': 'Admin upload',
+            'subject': 'English',
+            'grade_level': self.grade.pk,
+            'topic_file': SimpleUploadedFile('notes.pdf', b'<html>not a PDF</html>'),
+        })
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'The file content is not a PDF')
+        self.assertFalse(TopicRecord.objects.filter(topic='Admin upload').exists())
 
     def test_non_staff_cannot_update_or_delete_topics(self):
         self.client.force_login(self.student)

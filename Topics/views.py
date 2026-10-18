@@ -25,9 +25,10 @@ def renderTopics(request):
             form.save()
             sweetify.toast(request, 'New topic was successfully added. ', icon="success", timer=3000)
             return redirect('/dashboard/topics')
-        else:
-            form = AddTopicForm
-            return render(request, 'Topics.index.html', {'form':form})
+        return render(request, 'Topics/index.html', {
+            'form': form,
+            'data': TopicRecord.objects.all(),
+        })
     
     if request.user.is_staff | request.user.is_superuser:
         return render(request, 'Topics/index.html', {

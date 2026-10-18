@@ -19,9 +19,10 @@ def renderStories(request):
             form.save()
             sweetify.toast(request, 'New story was successfully added. ', icon="success", timer=3000)
             return redirect('Stories')
-        else:
-            form = AddStoryForm
-            return render(request, 'Stories', {'form':form})
+        return render(request, 'Stories/index.html', {
+            'form': form,
+            'data': StoriesRecord.objects.all(),
+        })
     
     context = {
         "data": StoriesRecord.objects.all(),

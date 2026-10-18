@@ -11,7 +11,12 @@ class AddTopicForm(forms.ModelForm):
             'topic': forms.TextInput(attrs={'type': 'text', 'class': 'form-control', 'id': 'topic', 'placeholder': '#'}),
             'subject': forms.TextInput(attrs={'type': 'text', 'class': 'form-control', 'id': 'subject', 'placeholder': '#'}),
             'grade_level': forms.Select(attrs={'class': 'form-select', 'id': 'grade_level'}),
-            'topic_file': forms.FileInput(attrs={'class': 'form-control', 'type': 'file', 'id': 'formFile'})
+            'topic_file': forms.FileInput(attrs={
+                'class': 'form-control',
+                'type': 'file',
+                'id': 'formFile',
+                'accept': '.pdf,.docx,.pptx',
+            })
         }
         
 class UpdateTopicForm(BSModalModelForm):
@@ -22,5 +27,10 @@ class UpdateTopicForm(BSModalModelForm):
         widgets = {
             'topic': forms.TextInput(attrs={'type': 'text', 'class': 'form-control', 'id': 'topic', 'placeholder': '#'}),
             'subject': forms.TextInput(attrs={'type': 'text', 'class': 'form-control', 'id': 'subject', 'placeholder': '#'}),
-            'topic_file': forms.FileInput(attrs={'class': 'form-control', 'type': 'file', 'id': 'formFile'})
+            'topic_file': forms.FileInput(attrs={
+                'class': 'form-control',
+                'type': 'file',
+                'id': 'formFile',
+                'accept': '.pdf,.docx,.pptx',
+            })
         }

@@ -9,5 +9,10 @@ class AddStoryForm(forms.ModelForm):
         widgets = {
             'story_name': forms.TextInput(attrs={'type': 'text', 'class': 'form-control', 'id': 'story', 'placeholder': '#'}),
             'story_description': forms.Textarea(attrs={'class': 'form-control', 'id': 'description', 'placeholder': '#'}),
-            'story_vid': forms.FileInput(attrs={'class': 'form-control', 'type': 'file', 'id': 'video'})
+            'story_vid': forms.FileInput(attrs={
+                'class': 'form-control',
+                'type': 'file',
+                'id': 'video',
+                'accept': '.mp4',
+            })
         }
