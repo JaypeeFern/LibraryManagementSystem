@@ -22,16 +22,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 DEBUG = os.environ.get('DJANGO_DEBUG', 'false').lower() == 'true'
 
-# Keep a convenient development fallback, but refuse to start a production
-# process with a known secret if the deployment variable is missing.
 SECRET_KEY = os.environ.get('SECRET_KEY')
-if not SECRET_KEY and not DEBUG:
+if not SECRET_KEY:
     from django.core.exceptions import ImproperlyConfigured
 
-    raise ImproperlyConfigured('SECRET_KEY must be set when DJANGO_DEBUG is false.')
-
-if not SECRET_KEY:
-    SECRET_KEY = os.environ.get("SECRET_KEY", "")
+    raise ImproperlyConfigured('SECRET_KEY must be set.')
 
 ALLOWED_HOSTS = [
     host.strip()
