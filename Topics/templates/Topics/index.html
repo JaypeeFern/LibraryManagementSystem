@@ -30,12 +30,8 @@
                             <td>{{data.subject}}</td>
                             {% if data.topic_file %}
                             <td>
-                              <a href="https://docs.google.com/viewer?url={{ data.topic_file.url }}">
-                                <button type="button" class="btn btn-outline-primary block">Read Online</button>
-                              </a>
-                              <a href="{{ data.topic_file.url }}" download>
-                                <button type="button" class="btn btn-outline-primary block">Download</button>
-                              </a>
+                              <a class="btn btn-outline-primary block" href="{% url 'TopicFile' data.pk %}" target="_blank" rel="noopener">Read Online</a>
+                              <a class="btn btn-outline-primary block" href="{% url 'TopicFile' data.pk %}?download=1">Download</a>
                               {% if user.is_staff %}
                               <form method="post" action="{% url 'DeleteTopics' data.id %}" class="d-inline">
                                 {% csrf_token %}

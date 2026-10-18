@@ -17,12 +17,14 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from Topics.views import topicFileByPath
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('Home.urls')),
     path('dashboard/', include('Dashboard.urls')),
-    path('dashboard/topics', include('Topics.urls')),
+    path('dashboard/topics/', include('Topics.urls')),
     path('dashboard/stories', include('Stories.urls')),
-    path('dashboard/dictionary', include('Dictionary.urls'))
+    path('dashboard/dictionary', include('Dictionary.urls')),
+    path('media/topic_files/<path:file_path>', topicFileByPath, name='TopicFileMedia'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
