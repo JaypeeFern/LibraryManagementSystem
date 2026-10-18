@@ -1,5 +1,10 @@
+import os
+import subprocess
+import sys
+from pathlib import Path
+
 from django.contrib import admin
-from django.test import RequestFactory, TestCase, override_settings
+from django.test import RequestFactory, SimpleTestCase, TestCase, override_settings
 from django.urls import reverse
 
 from .admin import GradeAndSectionListAdmin
@@ -10,6 +15,27 @@ TEST_STORAGES = {
     'default': {'BACKEND': 'django.core.files.storage.FileSystemStorage'},
     'staticfiles': {'BACKEND': 'django.contrib.staticfiles.storage.StaticFilesStorage'},
 }
+
+
+class SecretKeyConfigurationTests(SimpleTestCase):
+    def test_settings_refuse_to_start_without_secret_key_even_in_debug(self):
+        environment = os.environ.copy()
+        environment.pop('SECRET_KEY', None)
+        environment['DJANGO_DEBUG'] = 'true'
+        environment['DJANGO_SETTINGS_MODULE'] = 'backend.settings'
+
+        result = subprocess.run(
+            [sys.executable, '-c', 'import django; django.setup()'],
+            cwd=Path(__file__).resolve().parents[1],
+            env=environment,
+            capture_output=True,
+            text=True,
+            timeout=10,
+            check=False,
+        )
+
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn('SECRET_KEY must be set.', result.stderr)
 
 
 @override_settings(
