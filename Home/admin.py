@@ -5,6 +5,22 @@ from .models import *
 
 class CustomUserAdmin(admin.ModelAdmin):
     list_display = ('id','username','first_name','last_name','email','is_staff','is_active','is_superuser')
+
+    def has_module_permission(self, request):
+        return request.user.is_superuser
+
+    def has_view_permission(self, request, obj=None):
+        return request.user.is_superuser
+
+    def has_add_permission(self, request):
+        return request.user.is_superuser
+
+    def has_change_permission(self, request, obj=None):
+        return request.user.is_superuser
+
+    def has_delete_permission(self, request, obj=None):
+        return request.user.is_superuser
+
 admin.site.register(CustomUser, CustomUserAdmin)
 
 class GradeAndSectionListAdmin(admin.ModelAdmin):
