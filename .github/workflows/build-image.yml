@@ -17,6 +17,7 @@ on:
       - '.gitattributes'
       - '.github/workflows/build-image.yml'
       - 'Dockerfile'
+      - 'manage.py'
       - 'docker-compose.yml'
       - 'docker-compose.build.yml'
       - 'requirements.in'
@@ -57,8 +58,16 @@ jobs:
         with:
           context: .
           push: false
+          load: true
+          tags: ${{ env.IMAGE }}:${{ env.IMAGE_TAG }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
+      - name: Run Django regression suite
+        env:
+          SECRET_KEY: synthetic-ci-only-secret
+          DJANGO_DEBUG: 'true'
+        run: docker run --rm --env SECRET_KEY --env DJANGO_DEBUG "$IMAGE:$IMAGE_TAG" python manage.py test
 
   publish:
     needs: build
