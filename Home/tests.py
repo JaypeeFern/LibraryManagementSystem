@@ -9,6 +9,7 @@ from django.test import RequestFactory, SimpleTestCase, TestCase, override_setti
 from django.urls import reverse
 
 from .admin import GradeAndSectionListAdmin
+from .forms import RegistrationForm
 from .models import CustomUser, GradeAndSection, StudentAttendance
 
 
@@ -37,6 +38,27 @@ class SecretKeyConfigurationTests(SimpleTestCase):
 
         self.assertNotEqual(result.returncode, 0)
         self.assertIn('SECRET_KEY must be set.', result.stderr)
+
+
+class RegistrationPasswordPolicyTests(TestCase):
+    def make_form(self, password):
+        return RegistrationForm(data={
+            'first_name': 'Synthetic',
+            'username': 'unrelated-account',
+            'password1': password,
+            'password2': password,
+        })
+
+    def test_registration_rejects_passwords_shorter_than_fifteen_characters(self):
+        form = self.make_form('eagle-tree-lak')
+
+        self.assertFalse(form.is_valid())
+        self.assertIn('at least 15 characters', form.errors['password2'][0])
+
+    def test_registration_allows_a_long_numeric_passphrase_without_composition_rules(self):
+        form = self.make_form('482937105638214')
+
+        self.assertTrue(form.is_valid(), form.errors)
 
 
 @override_settings(

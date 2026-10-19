@@ -6,15 +6,20 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 
 WORKDIR /app
 
+COPY requirements-build.txt ./
 COPY requirements.txt ./
-RUN python -m pip install --no-cache-dir --require-hashes --requirement requirements.txt
+RUN python -m pip install --no-cache-dir --require-hashes --requirement requirements-build.txt \
+    && python -m pip install --no-cache-dir --require-hashes --requirement requirements.txt \
+    && python -m pip uninstall --yes pip \
+    && rm -rf /usr/local/lib/python3.12/ensurepip
 
 COPY . .
 COPY docker/entrypoint.sh /usr/local/bin/library-entrypoint
 RUN chmod 0755 /usr/local/bin/library-entrypoint \
     && useradd --create-home --uid 10001 --no-log-init appuser \
-    && mkdir -p /data/media \
-    && chown -R appuser:appuser /app /data
+    && mkdir -p /app/staticfiles /data/media \
+    && chown -R appuser:appuser /data \
+    && chown appuser:appuser /app/staticfiles
 
 ENV DATABASE_PATH=/data/db.sqlite3 \
     MEDIA_ROOT=/data/media \
