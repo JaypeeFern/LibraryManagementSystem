@@ -80,6 +80,15 @@ ticket, shell history, logs, or a chat message.
    a newly generated key. Do not restore the historically exposed key as a
    rollback value. Record completion time and the new key's secret-manager
    version, never the key itself.
+7. A force-push removes the exposed commit from reachable repository refs but
+   does not necessarily remove GitHub's cached commit views or copies in
+   forks. After confirming all refs are clean and rotating or revoking every
+   exposed credential, request cached-view removal through
+   [GitHub Support's sensitive-data process](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)
+   when exposed data remains sensitive and its risk is not already mitigated
+   by credential rotation. Verify old commit URLs no longer expose the data;
+   do not treat a successful force-push as proof that GitHub's caches were
+   purged.
 
 The webhook must be an HTTPS resource deploy URL in the form
 `https://<coolify-host>/api/v1/deploy?uuid=<application-uuid>&force=false`.
