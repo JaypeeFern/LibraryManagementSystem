@@ -22,6 +22,7 @@ on:
       - 'docker-compose.build.yml'
       - 'requirements.in'
       - 'requirements.txt'
+      - 'requirements-build.txt'
       - '**/*.html'
       - '**/*.css'
       - '**/*.js'
