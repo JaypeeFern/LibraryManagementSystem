@@ -1,6 +1,9 @@
-from django.db import models
 import secrets
 import string
+
+from django.db import models
+
+from backend.uploads import validate_story_thumbnail, validate_story_video
 # Create your models here.
 
 def randomGenerator():
@@ -15,8 +18,16 @@ class StoriesRecord(models.Model):
     reference_number = models.CharField(max_length=10, editable=False, default=randomGenerator)
     story_name = models.CharField(max_length=64, null=True)
     story_description = models.TextField(max_length=300, null=True, blank=True, default=defaultDescription)
-    story_vid = models.FileField(upload_to="stories_files/video", blank=True)
-    story_thumbnail = models.ImageField(upload_to="stories_files/thumb", blank=True)
+    story_vid = models.FileField(
+        upload_to="stories_files/video",
+        blank=True,
+        validators=[validate_story_video],
+    )
+    story_thumbnail = models.ImageField(
+        upload_to="stories_files/thumb",
+        blank=True,
+        validators=[validate_story_thumbnail],
+    )
     date_uploadeded = models.DateTimeField(auto_now=True)
 
     def __str__(self):

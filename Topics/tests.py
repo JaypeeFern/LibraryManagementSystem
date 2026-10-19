@@ -1,10 +1,16 @@
 from tempfile import TemporaryDirectory
+from io import BytesIO
+from zipfile import ZipFile
 
+from django.core.exceptions import ValidationError
+from django.core.files.base import ContentFile
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.test import Client, TestCase, override_settings
 from django.urls import reverse
 
 from Home.models import CustomUser, GradeAndSection
+from backend.uploads import MAX_TOPIC_FILE_BYTES, validate_topic_file
+from .forms import AddTopicForm
 from .models import TopicRecord
 
 
@@ -45,6 +51,7 @@ class TopicAuthorizationTests(TestCase):
             grade_level=self.grade,
             topic_file='fixture.pdf',
         )
+        self.topic.topic_file.save('reading.pdf', ContentFile(b'%PDF-1.7\nprotected topic content'), save=True)
 
     def test_student_read_access_is_preserved_for_assigned_grade(self):
         self.client.force_login(self.student)
@@ -58,6 +65,98 @@ class TopicAuthorizationTests(TestCase):
         response = self.client.get(reverse('Topics'))
 
         self.assertEqual(response.status_code, 302)
+
+    def test_topic_file_requires_authentication(self):
+        response = self.client.get(reverse('TopicFile', args=[self.topic.pk]))
+
+        self.assertEqual(response.status_code, 302)
+
+    @override_settings(DEBUG=True)
+    def test_debug_media_url_cannot_bypass_topic_file_authorization(self):
+        media_url = self.topic.topic_file.url
+
+        anonymous_response = self.client.get(media_url)
+        self.assertEqual(anonymous_response.status_code, 302)
+
+        other_grade = GradeAndSection.objects.create(Grades='Grade 7')
+        other_student = CustomUser.objects.create_user(
+            username='media-other-student',
+            password='test-password-123',
+            student_grade_level=other_grade,
+        )
+        self.client.force_login(other_student)
+        denied_response = self.client.get(media_url)
+
+        self.assertEqual(denied_response.status_code, 404)
+
+    def test_matching_grade_student_can_read_and_download_topic_file(self):
+        self.client.force_login(self.student)
+
+        read_response = self.client.get(reverse('TopicFile', args=[self.topic.pk]))
+        download_response = self.client.get(reverse('TopicFile', args=[self.topic.pk]), {'download': '1'})
+
+        self.assertEqual(read_response.status_code, 200)
+        self.assertEqual(b''.join(read_response.streaming_content), b'%PDF-1.7\nprotected topic content')
+        self.assertEqual(read_response['Content-Type'], 'application/pdf')
+        self.assertIn('inline', read_response['Content-Disposition'])
+        self.assertEqual(read_response['Cache-Control'], 'private, no-store')
+        self.assertEqual(download_response.status_code, 200)
+        self.assertIn('attachment', download_response['Content-Disposition'])
+
+    def test_cross_grade_and_unassigned_students_cannot_read_topic_file(self):
+        another_grade = GradeAndSection.objects.create(Grades='Grade 7')
+        other_student = CustomUser.objects.create_user(
+            username='other-student',
+            password='test-password-123',
+            student_grade_level=another_grade,
+        )
+        unassigned_student = CustomUser.objects.create_user(
+            username='unassigned-student',
+            password='test-password-123',
+        )
+
+        for student in (other_student, unassigned_student):
+            with self.subTest(username=student.username):
+                self.client.force_login(student)
+                response = self.client.get(reverse('TopicFile', args=[self.topic.pk]))
+                self.assertEqual(response.status_code, 404)
+
+    def test_staff_can_read_topic_files_for_any_grade(self):
+        other_grade = GradeAndSection.objects.create(Grades='Grade 8')
+        other_topic = TopicRecord.objects.create(
+            topic='Advanced reading',
+            subject='English',
+            grade_level=other_grade,
+            topic_file='fixture-other.pdf',
+        )
+        other_topic.topic_file.save('advanced.pdf', ContentFile(b'%PDF-1.7\nstaff content'), save=True)
+        self.client.force_login(self.staff)
+
+        response = self.client.get(reverse('TopicFile', args=[other_topic.pk]))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(b''.join(response.streaming_content), b'%PDF-1.7\nstaff content')
+
+    def test_unassigned_student_sees_no_topics(self):
+        unassigned_student = CustomUser.objects.create_user(
+            username='list-unassigned',
+            password='test-password-123',
+        )
+        self.client.force_login(unassigned_student)
+
+        response = self.client.get(reverse('Topics'))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertNotContains(response, 'Reading')
+
+    def test_topic_list_uses_protected_urls_without_google_viewer_or_media_url(self):
+        self.client.force_login(self.student)
+
+        response = self.client.get(reverse('Topics'))
+
+        self.assertContains(response, reverse('TopicFile', args=[self.topic.pk]))
+        self.assertNotContains(response, 'docs.google.com/viewer')
+        self.assertNotContains(response, self.topic.topic_file.url)
 
     def test_anonymous_user_cannot_upload_update_or_delete_topics(self):
         upload_response = self.client.post(reverse('Topics'), {
@@ -100,11 +199,68 @@ class TopicAuthorizationTests(TestCase):
             'topic': 'Authorized topic',
             'subject': 'English',
             'grade_level': self.grade.pk,
-            'topic_file': SimpleUploadedFile('notes.pdf', b'test'),
+            'topic_file': SimpleUploadedFile('notes.pdf', b'%PDF-1.7\n'),
         })
 
         self.assertEqual(response.status_code, 302)
         self.assertTrue(TopicRecord.objects.filter(topic='Authorized topic').exists())
+
+    def test_topic_upload_accepts_pdf_docx_and_pptx_signatures(self):
+        validate_topic_file(SimpleUploadedFile('notes.pdf', b'%PDF-1.7\n'))
+
+        for name, required_member in (
+            ('notes.docx', 'word/document.xml'),
+            ('slides.pptx', 'ppt/presentation.xml'),
+        ):
+            with self.subTest(name=name):
+                document = BytesIO()
+                with ZipFile(document, 'w') as package:
+                    package.writestr('[Content_Types].xml', '<Types/>')
+                    package.writestr(required_member, '<document/>')
+                validate_topic_file(SimpleUploadedFile(name, document.getvalue()))
+
+    def test_topic_upload_rejects_wrong_extension_content_and_oversized_files(self):
+        with self.assertRaises(ValidationError):
+            validate_topic_file(SimpleUploadedFile('notes.exe', b'%PDF-1.7'))
+        with self.assertRaises(ValidationError):
+            validate_topic_file(SimpleUploadedFile('notes.pdf', b'<html>not a PDF</html>'))
+
+        oversized_file = SimpleUploadedFile('notes.pdf', b'%PDF-1.7')
+        oversized_file.size = MAX_TOPIC_FILE_BYTES + 1
+        with self.assertRaises(ValidationError):
+            validate_topic_file(oversized_file)
+
+    def test_staff_sees_topic_upload_validation_errors_without_server_error(self):
+        self.client.force_login(self.staff)
+
+        response = self.client.post(reverse('Topics'), {
+            'topic': 'Invalid upload',
+            'subject': 'English',
+            'grade_level': self.grade.pk,
+            'topic_file': SimpleUploadedFile('notes.pdf', b'<html>not a PDF</html>'),
+        })
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'The file content is not a PDF')
+        self.assertFalse(TopicRecord.objects.filter(topic='Invalid upload').exists())
+
+    def test_topic_admin_rejects_invalid_file_content(self):
+        administrator = CustomUser.objects.create_superuser(
+            username='administrator',
+            password='test-password-123',
+        )
+        self.client.force_login(administrator)
+
+        response = self.client.post(reverse('admin:Topics_topicrecord_add'), {
+            'topic': 'Admin upload',
+            'subject': 'English',
+            'grade_level': self.grade.pk,
+            'topic_file': SimpleUploadedFile('notes.pdf', b'<html>not a PDF</html>'),
+        })
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'The file content is not a PDF')
+        self.assertFalse(TopicRecord.objects.filter(topic='Admin upload').exists())
 
     def test_non_staff_cannot_update_or_delete_topics(self):
         self.client.force_login(self.student)

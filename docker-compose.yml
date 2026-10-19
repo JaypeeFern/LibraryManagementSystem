@@ -4,6 +4,10 @@ services:
   web:
     image: ${IMAGE_REFERENCE:?IMAGE_REFERENCE must be the verified GHCR digest reference}
     restart: unless-stopped
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
     environment:
       SECRET_KEY: ${SECRET_KEY:?Set SECRET_KEY in the deployment environment}
       DJANGO_DEBUG: "false"
@@ -26,7 +30,7 @@ services:
         - CMD
         - python
         - -c
-        - "from urllib.request import urlopen; urlopen('http://127.0.0.1:8000/', timeout=3)"
+        - "from urllib.request import Request, urlopen; urlopen(Request('http://127.0.0.1:8000/', headers={'X-Forwarded-Proto': 'https'}), timeout=3)"
       interval: 30s
       timeout: 5s
       retries: 3

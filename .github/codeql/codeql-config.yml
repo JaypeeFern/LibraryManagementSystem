@@ -1,0 +1,6 @@
+name: Library application security scans
+
+paths-ignore:
+  - '**/vendor/**'
+  - '**/*.min.js'
+  - '**/staticfiles/**'

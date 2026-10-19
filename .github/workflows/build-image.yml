@@ -17,10 +17,12 @@ on:
       - '.gitattributes'
       - '.github/workflows/build-image.yml'
       - 'Dockerfile'
+      - 'manage.py'
       - 'docker-compose.yml'
       - 'docker-compose.build.yml'
       - 'requirements.in'
       - 'requirements.txt'
+      - 'requirements-build.txt'
       - '**/*.html'
       - '**/*.css'
       - '**/*.js'
@@ -42,9 +44,9 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - uses: docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f # v3.12.0
+      - uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
 
       - name: Verify image identity
         run: |
@@ -53,35 +55,45 @@ jobs:
             exit 1
           fi
 
-      - uses: docker/build-push-action@10e90e3645eae34f1e60eeb005ba3a3d33f178e8 # v6.19.2
+      - uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
         with:
           context: .
           push: false
+          load: true
+          tags: ${{ env.IMAGE }}:${{ env.IMAGE_TAG }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
+      - name: Run Django regression suite
+        env:
+          SECRET_KEY: synthetic-ci-only-secret
+          DJANGO_DEBUG: 'true'
+        run: docker run --rm --env SECRET_KEY --env DJANGO_DEBUG "$IMAGE:$IMAGE_TAG" python manage.py test
+
   publish:
     needs: build
-    if: github.event_name != 'pull_request'
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
+      attestations: write
+      id-token: write
     outputs:
       image-digest: ${{ steps.publish-image.outputs.digest }}
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - uses: docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f # v3.12.0
+      - uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
 
-      - uses: docker/login-action@5e57cd118135c172c3672efd75eb46360885c0ef # v3.6.0
+      - uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4.6.0
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - id: meta
-        uses: docker/metadata-action@c1e51972afc2121e065aed6d45c65596fe445f3f # v5.8.0
+        uses: docker/metadata-action@dc802804100637a589fabce1cb79ff13a1411302 # v6.2.0
         with:
           images: ${{ env.IMAGE }}
           tags: |
@@ -89,7 +101,7 @@ jobs:
             type=raw,value=latest,enable={{is_default_branch}}
 
       - id: publish-image
-        uses: docker/build-push-action@10e90e3645eae34f1e60eeb005ba3a3d33f178e8 # v6.19.2
+        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
         with:
           context: .
           push: true
@@ -99,16 +111,25 @@ jobs:
           cache-to: type=gha,mode=max
           provenance: mode=max
 
+      - name: Attest published image
+        uses: actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6 # v4
+        with:
+          subject-name: ${{ env.IMAGE }}
+          subject-digest: ${{ steps.publish-image.outputs.digest }}
+          push-to-registry: true
+          create-storage-record: false
+
   verify-image:
     needs: publish
-    if: github.event_name != 'pull_request'
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
+      attestations: read
       packages: read
     steps:
-      - uses: docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f # v3.12.0
+      - uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
 
-      - uses: docker/login-action@5e57cd118135c172c3672efd75eb46360885c0ef # v3.6.0
+      - uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4.6.0
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
@@ -118,6 +139,17 @@ jobs:
         env:
           IMAGE_REFERENCE: ghcr.io/jaypeefern/library-management-system@${{ needs.publish.outputs.image-digest }}
         run: docker buildx imagetools inspect "$IMAGE_REFERENCE"
+
+      - name: Verify signed build provenance
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          IMAGE_REFERENCE: ghcr.io/jaypeefern/library-management-system@${{ needs.publish.outputs.image-digest }}
+        run: >-
+          gh attestation verify "oci://$IMAGE_REFERENCE"
+          --bundle-from-oci
+          --repo "$GITHUB_REPOSITORY"
+          --signer-workflow "$GITHUB_REPOSITORY/.github/workflows/build-image.yml"
+          --source-digest "$GITHUB_SHA"
 
   deploy:
     needs: [build, verify-image, publish]

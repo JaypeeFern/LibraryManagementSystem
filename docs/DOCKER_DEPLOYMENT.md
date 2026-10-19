@@ -18,8 +18,24 @@ used for deployment.
    and use this custom build command:
 
    ```sh
-   sh -c 'T=$(grep "^GHCR_TOKEN=" /artifacts/build-time.env | cut -d= -f2- | sed -e "s/^\"//" -e "s/\"$//"); echo "$T" | docker login ghcr.io -u JaypeeFern --password-stdin && docker compose -f docker-compose.yml pull'
+   sh -c '
+     set -eu
+     umask 077
+     DOCKER_CONFIG=$(mktemp -d)
+     export DOCKER_CONFIG
+     trap '\''rm -rf "$DOCKER_CONFIG"'\'' EXIT
+     trap '\''exit 1'\'' HUP INT TERM
+     GHCR_TOKEN=$(grep "^GHCR_TOKEN=" /artifacts/build-time.env | cut -d= -f2- | sed -e "s/^\"//" -e "s/\"$//")
+     printf "%s" "$GHCR_TOKEN" | docker login ghcr.io -u JaypeeFern --password-stdin
+     unset GHCR_TOKEN
+     docker compose -f docker-compose.yml pull
+   '
    ```
+
+   The temporary Docker config is private to this pull and is removed when the
+   command exits, including when login or pulling fails. This prevents the
+   registry credential from remaining in the persistent host user's default
+   `~/.docker/config.json`.
 
 4. Set the runtime variables `SECRET_KEY`, `ALLOWED_HOSTS`, and
    `CSRF_TRUSTED_ORIGINS`. `ALLOWED_HOSTS` is a comma-separated hostname list;
@@ -32,6 +48,47 @@ used for deployment.
    `COOLIFY_WEBHOOK_URL`, `COOLIFY_TOKEN`, and `COOLIFY_API_TOKEN`. If all are
    absent, CI builds and verifies the image but skips automatic deployment; a
    partial set fails the workflow.
+
+## Django signing-key rotation
+
+The key previously present in public Git history must be treated as
+compromised, even after history cleanup. The repository's configured
+deployment uses Coolify; confirm the actual production resource and account
+before making changes, since the connected Coolify team may not own it. Rotate
+the production `SECRET_KEY` through the owning platform's protected
+runtime-variable interface. Do not put either key in this repository, a
+ticket, shell history, logs, or a chat message.
+
+1. Identify the production app, owning platform/account, ingress, and current
+   runtime-variable source. Schedule a short maintenance window and confirm
+   the current deployment is healthy. Record the currently deployed
+   `IMAGE_REFERENCE` digest for troubleshooting. Do not read or copy the
+   current key into notes.
+2. Generate a new high-entropy Django secret using a trusted local secret
+   manager or secret-generation facility. Keep the value out of terminal output
+   and store it only in the platform's protected `SECRET_KEY` variable.
+3. Save the new variable and redeploy the same verified image digest. The
+   application requires `SECRET_KEY` at startup, so a missing value will fail
+   closed rather than use a fallback.
+4. Check the deployment health state and HTTPS login, logout, and a
+   staff-authorized action. Watch application logs for startup/configuration
+   errors without logging environment values. Confirm a fresh login works.
+5. Tell users to sign in again. Rotation invalidates existing sessions and
+   other Django signatures created with the old key, including outstanding
+   password-reset links and signed-cookie data.
+6. If the deployment fails, redeploy the recorded verified image digest with
+   a newly generated key. Do not restore the historically exposed key as a
+   rollback value. Record completion time and the new key's secret-manager
+   version, never the key itself.
+7. A force-push removes the exposed commit from reachable repository refs but
+   does not necessarily remove GitHub's cached commit views or copies in
+   forks. After confirming all refs are clean and rotating or revoking every
+   exposed credential, request cached-view removal through
+   [GitHub Support's sensitive-data process](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)
+   when exposed data remains sensitive and its risk is not already mitigated
+   by credential rotation. Verify old commit URLs no longer expose the data;
+   do not treat a successful force-push as proof that GitHub's caches were
+   purged.
 
 The webhook must be an HTTPS resource deploy URL in the form
 `https://<coolify-host>/api/v1/deploy?uuid=<application-uuid>&force=false`.
